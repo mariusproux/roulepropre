@@ -34,43 +34,44 @@ const Navbar = () => {
       <div className="container-custom flex justify-between items-center">
         <a href="/" className="flex items-center">
           <img 
-            src="/lovable-uploads/9c96e22a-b9c5-4136-bf4f-05339a70db1d.png" 
+            src="/lovable-uploads/b1c38cd4-cd16-4d47-a7ce-d95c6868077b.png" 
             alt="ROULE PROPRE Logo"
-            className="h-10 w-10 mr-2"
+            className="h-12 w-12 mr-2"
           />
-          <span className="text-xl font-bold text-gray-900 flex items-center">
-            <span className="text-rp-accent">ROULE</span>
-            <span className="ml-1">PROPRE</span>
+          <span className="text-xl font-bold text-gray-900">
+            ROULE PROPRE
           </span>
         </a>
 
         {/* Desktop navigation */}
-        <nav className="hidden md:flex items-center space-x-8">
+        <nav className="hidden md:flex items-center space-x-6">
           <a
             href="#services"
-            className="text-gray-700 hover:text-rp-accent font-medium transition-colors"
+            className="text-gray-700 hover:text-blue-500 font-medium transition-colors"
           >
             Services
           </a>
           <a
             href="#choisir"
-            className="text-gray-700 hover:text-rp-accent font-medium transition-colors"
+            className="text-gray-700 hover:text-blue-500 font-medium transition-colors"
           >
             Choisir ma prestation
           </a>
           <a
             href="#temoignages"
-            className="text-gray-700 hover:text-rp-accent font-medium transition-colors"
+            className="text-gray-700 hover:text-blue-500 font-medium transition-colors"
           >
             Témoignages
           </a>
           <a
             href="#faq"
-            className="text-gray-700 hover:text-rp-accent font-medium transition-colors"
+            className="text-gray-700 hover:text-blue-500 font-medium transition-colors"
           >
             FAQ
           </a>
-          <Button className="btn-primary">Prendre Rendez-vous</Button>
+          <Button className="bg-blue-500 hover:bg-blue-600 text-white font-medium px-4 py-2 rounded-md">
+            Prendre Rendez-vous
+          </Button>
         </nav>
 
         {/* Mobile menu button */}
@@ -88,33 +89,35 @@ const Navbar = () => {
           <div className="container-custom py-4 flex flex-col space-y-4">
             <a
               href="#services"
-              className="text-gray-700 hover:text-rp-accent font-medium transition-colors py-2"
+              className="text-gray-700 hover:text-blue-500 font-medium transition-colors py-2"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Services
             </a>
             <a
               href="#choisir"
-              className="text-gray-700 hover:text-rp-accent font-medium transition-colors py-2"
+              className="text-gray-700 hover:text-blue-500 font-medium transition-colors py-2"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Choisir ma prestation
             </a>
             <a
               href="#temoignages"
-              className="text-gray-700 hover:text-rp-accent font-medium transition-colors py-2"
+              className="text-gray-700 hover:text-blue-500 font-medium transition-colors py-2"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Témoignages
             </a>
             <a
               href="#faq"
-              className="text-gray-700 hover:text-rp-accent font-medium transition-colors py-2"
+              className="text-gray-700 hover:text-blue-500 font-medium transition-colors py-2"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               FAQ
             </a>
-            <Button className="btn-primary w-full">Prendre Rendez-vous</Button>
+            <Button className="bg-blue-500 hover:bg-blue-600 text-white font-medium w-full">
+              Prendre Rendez-vous
+            </Button>
           </div>
         </div>
       )}
