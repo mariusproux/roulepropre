@@ -5,7 +5,6 @@ import { ArrowRight } from "lucide-react";
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center bg-hero-gradient overflow-hidden pt-20">
-      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1562157873-818bc0726f68?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80')] bg-cover bg-center opacity-[0.03] z-0"></div>
       <div className="absolute inset-0 bg-blue-500/10 backdrop-blur-[120px] z-10"></div>
       
       <div className="container-custom relative z-20">
@@ -16,8 +15,9 @@ const HeroSection = () => {
             </div>
             
             <h1 className="text-5xl font-bold tracking-tight text-gray-900 md:text-6xl">
-              Offrez à votre voiture une propreté éclatante, le{" "}
-              <span className="text-rp-accent">Smart Way</span> 🚗✨
+              Offrez à votre voiture une{" "}
+              <span className="text-rp-accent bg-gradient-to-r from-blue-500 to-blue-600 bg-clip-text text-transparent">propreté éclatante</span>, le{" "}
+              <span className="text-rp-accent bg-gradient-to-r from-blue-500 to-blue-600 bg-clip-text text-transparent">Smart Way</span> 🚗✨
             </h1>
             
             <p className="text-lg text-gray-600 max-w-xl">
@@ -42,18 +42,18 @@ const HeroSection = () => {
             </div>
           </div>
           
-          <div className="hidden md:block relative animate-fade-in">
+          <div className="hidden md:flex justify-center items-center relative animate-fade-in">
             <div className="absolute -right-10 -top-10 w-40 h-40 bg-rp-blue rounded-full filter blur-3xl opacity-60"></div>
             <div className="absolute -left-10 -bottom-10 w-40 h-40 bg-rp-green rounded-full filter blur-3xl opacity-60"></div>
             
-            <div className="relative z-10 p-4">
+            <div className="relative z-10 p-4 animate-float">
               <img
-                src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
-                alt="Car cleaning"
-                className="rounded-2xl shadow-2xl w-full h-[500px] object-cover animate-float"
+                src="/lovable-uploads/9c96e22a-b9c5-4136-bf4f-05339a70db1d.png"
+                alt="ROULE PROPRE Logo"
+                className="w-[300px] h-[300px] object-contain"
               />
               
-              <div className="absolute -bottom-6 -right-6 bg-white rounded-xl shadow-lg p-4 w-48 animate-float">
+              <div className="absolute -bottom-6 -right-6 bg-white rounded-xl shadow-lg p-4 w-48">
                 <div className="flex items-center space-x-2">
                   <div className="w-3 h-3 bg-green-500 rounded-full"></div>
                   <span className="text-sm font-medium">Disponible</span>

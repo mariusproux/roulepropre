@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -123,7 +122,7 @@ export default {
 						transform: "translateY(0)"
 					},
 					"50%": {
-						transform: "translateY(-5px)"
+						transform: "translateY(-15px)"
 					}
 				}
 			},
@@ -134,7 +133,7 @@ export default {
 				"fade-in-fast": "fade-in 0.3s ease-out",
 				"slide-in": "slide-in 0.7s ease-out",
 				"pulse-light": "pulse-light 3s infinite",
-				"float": "float 3s infinite ease-in-out"
+				"float": "float 6s infinite ease-in-out"
 			},
 			backgroundImage: {
 				"blue-green-gradient": "linear-gradient(90deg, #D3E4FD, #F2FCE2)",

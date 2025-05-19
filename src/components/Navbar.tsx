@@ -33,6 +33,11 @@ const Navbar = () => {
     >
       <div className="container-custom flex justify-between items-center">
         <a href="/" className="flex items-center">
+          <img 
+            src="/lovable-uploads/9c96e22a-b9c5-4136-bf4f-05339a70db1d.png" 
+            alt="ROULE PROPRE Logo"
+            className="h-10 w-10 mr-2"
+          />
           <span className="text-xl font-bold text-gray-900 flex items-center">
             <span className="text-rp-accent">ROULE</span>
             <span className="ml-1">PROPRE</span>

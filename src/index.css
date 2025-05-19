@@ -140,4 +140,20 @@
   .badge {
     @apply inline-flex items-center rounded-full bg-rp-green px-2.5 py-0.5 text-xs font-semibold text-gray-900 transition-colors hover:bg-rp-green/80;
   }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-15px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
 }
