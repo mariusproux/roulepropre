@@ -15,13 +15,12 @@ const HeroSection = () => {
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 leading-tight">
               Offrez à votre voiture{" "}
-              <span className="text-blue-500 bg-gradient-to-r from-blue-500 to-blue-400 bg-clip-text text-transparent">une propreté éclatante</span>, le{" "}
-              <span className="text-blue-500 bg-gradient-to-r from-blue-500 to-blue-400 bg-clip-text text-transparent">Smart Way</span>{" "}
+              <span className="text-blue-500 bg-gradient-to-r from-blue-500 to-blue-400 bg-clip-text text-transparent">une propreté éclatante</span>
               🚘✨
             </h1>
             
             <p className="text-lg text-gray-600 max-w-xl">
-              Services de nettoyage automobile avec technologies avancées, personnalisées, et résultats premium.
+              Services de nettoyage automobile.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
