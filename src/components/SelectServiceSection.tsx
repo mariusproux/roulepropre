@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -7,11 +6,17 @@ import { Check, ArrowRight } from "lucide-react";
 const services = [
   {
     id: "interieur",
-    title: "Nettoyage Intérieur",
-    description: "Traitement complet de l'habitacle",
+    title: "Nettoyage Intérieur Simple",
+    description: "Soin complet de l'habitacle, du sol au plafond",
     price: "À partir de 69€",
     duration: "~2 heures",
-    features: ["Aspiration complète", "Nettoyage sièges", "Traitement cuir/tissus", "Désinfection"]
+    features: [
+      "Nettoyage des plastiques, vitreries intérieures", 
+      "Aspiration complète de l'habitacle et du coffre", 
+      "Aspiration tapis, moquette", 
+      "Nettoyage contour des portes et contour du coffre", 
+      "Habitacle parfumé"
+    ]
   },
   {
     id: "exterieur",
