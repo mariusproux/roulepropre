@@ -43,7 +43,7 @@ const HeroSection = () => {
           <div className="hidden md:flex justify-center items-center h-full">
             <div className="relative z-10">
               <img
-                src="/lovable-uploads/48c8cc34-53ac-45e0-a346-ed250df87a39.png"
+                src="/lovable-uploads/fbc53842-1cfa-4b40-bbf5-3289f6a111de.png"
                 alt="ROULE PROPRE Logo"
                 className="w-[500px] h-[500px] object-contain"
               />
