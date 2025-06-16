@@ -5,22 +5,23 @@ import { ArrowRight } from "lucide-react";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center bg-hero-gradient overflow-hidden pt-20">
+    <section className="relative min-h-screen flex items-center bg-gradient-to-br from-blue-100 via-blue-50 to-green-100 overflow-hidden pt-20">
       <div className="container-custom relative z-20">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6 animate-fade-in">
-            <Badge className="bg-rp-green text-gray-900 px-3 py-1 text-sm font-medium">
+        <div className="grid md:grid-cols-2 gap-12 items-center min-h-[80vh]">
+          <div className="space-y-6 animate-fade-in flex flex-col justify-center">
+            <Badge className="bg-yellow-100 text-gray-900 px-3 py-1 text-sm font-medium w-fit">
               ✋ Plus de 50 voitures nettoyées ce mois-ci !
             </Badge>
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 leading-tight">
               Offrez à votre voiture{" "}
-              <span className="text-blue-500 bg-gradient-to-r from-blue-500 to-blue-400 bg-clip-text text-transparent">une propreté éclatante</span>
+              <span className="text-blue-500 bg-gradient-to-r from-blue-500 to-blue-400 bg-clip-text text-transparent">une propreté éclatante</span>, le{" "}
+              <span className="text-blue-500 bg-gradient-to-r from-blue-500 to-blue-400 bg-clip-text text-transparent">Smart Way</span>{" "}
               🚘✨
             </h1>
             
             <p className="text-lg text-gray-600 max-w-xl">
-              Services de nettoyage automobile.
+              Services de nettoyage automobile avec technologies avancées, personnalisées, et résultats premium.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
@@ -39,12 +40,12 @@ const HeroSection = () => {
             </div>
           </div>
           
-          <div className="hidden md:flex justify-center items-center">
-            <div className="relative z-10 animate-float">
+          <div className="hidden md:flex justify-center items-center h-full">
+            <div className="relative z-10">
               <img
-                src="/lovable-uploads/3f38ad29-79e4-4a31-aa00-1683a5b7ea9c.png"
+                src="/lovable-uploads/b1c38cd4-cd16-4d47-a7ce-d95c6868077b.png"
                 alt="ROULE PROPRE Logo"
-                className="w-[400px] h-[400px] object-contain"
+                className="w-[500px] h-[500px] object-contain"
               />
             </div>
           </div>
