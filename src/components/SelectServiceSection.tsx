@@ -1,7 +1,8 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Check, ArrowRight } from "lucide-react";
+import { Check, ArrowRight, X } from "lucide-react";
 
 const services = [
   {
@@ -33,6 +34,26 @@ const services = [
     price: "À partir de 119€",
     duration: "~3 heures",
     features: ["Intérieur + Extérieur", "Traitement cire premium", "Protection longue durée", "Parfum offert"]
+  },
+  {
+    id: "interieur-shampoing",
+    title: "Nettoyage Intérieur Shampoing",
+    description: "Pour un intérieur rafraîchi en profondeur",
+    price: "À partir de 89€",
+    duration: "~2.5 heures",
+    features: [
+      "Nettoyage des plastiques, vitreries intérieures",
+      "Aspiration complète de l'habitacle et du coffre",
+      "Aspiration tapis, moquette",
+      "Nettoyage contour des portes et contour du coffre",
+      "Habitacle parfumé",
+      "Shampoing des tapis et moquette",
+      "Shampoing des sièges tissu",
+      "Nettoyage des sièges cuir"
+    ],
+    excludedFeatures: [
+      "Shampoing du coffre non inclus"
+    ]
   }
 ];
 
@@ -49,7 +70,7 @@ const SelectServiceSection = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
           {services.map((service) => (
             <Card
               key={service.id}
@@ -89,6 +110,12 @@ const SelectServiceSection = () => {
                       <li key={index} className="flex items-start">
                         <span className="text-rp-accent mr-2 text-lg">✓</span>
                         <span className="text-sm">{feature}</span>
+                      </li>
+                    ))}
+                    {service.excludedFeatures && service.excludedFeatures.map((feature, index) => (
+                      <li key={`excluded-${index}`} className="flex items-start">
+                        <span className="text-red-500 mr-2 text-lg">🚫</span>
+                        <span className="text-sm text-gray-500">{feature}</span>
                       </li>
                     ))}
                   </ul>
