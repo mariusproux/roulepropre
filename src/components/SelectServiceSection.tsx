@@ -1,8 +1,8 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Check, ArrowRight, X } from "lucide-react";
+import { Check, ArrowRight } from "lucide-react";
+import KilometricRateModal from "./KilometricRateModal";
 
 const services = [
   {
@@ -59,6 +59,21 @@ const services = [
 
 const SelectServiceSection = () => {
   const [selectedService, setSelectedService] = useState(services[2].id);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleReservation = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleModalConfirm = () => {
+    setIsModalOpen(false);
+    // Ici on pourrait rediriger vers la page de réservation
+    console.log("Redirection vers la réservation...");
+  };
+
+  const handleModalClose = () => {
+    setIsModalOpen(false);
+  };
 
   return (
     <section id="choisir" className="section-padding bg-rp-blue/20">
@@ -181,12 +196,18 @@ const SelectServiceSection = () => {
         </div>
         
         <div className="text-center mt-12">
-          <Button className="btn-primary group">
+          <Button className="btn-primary group" onClick={handleReservation}>
             Réserver cette prestation
             <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
           </Button>
         </div>
       </div>
+      
+      <KilometricRateModal
+        isOpen={isModalOpen}
+        onClose={handleModalClose}
+        onConfirm={handleModalConfirm}
+      />
     </section>
   );
 };
