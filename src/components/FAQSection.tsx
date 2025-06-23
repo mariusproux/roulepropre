@@ -8,19 +8,14 @@ import {
 
 const faqs = [
   {
-    question: "Combien de temps dure un nettoyage complet ?",
+    question: "Combien de temps dure un nettoyage ?",
     answer:
-      "La durée d'un nettoyage complet (intérieur et extérieur) varie généralement entre 2h30 et 3h30 selon le niveau de saleté et la taille du véhicule. Pour un SUV ou un monospace très sale, comptez jusqu'à 4h."
-  },
-  {
-    question: "Utilisez-vous des produits écologiques ?",
-    answer:
-      "Absolument ! Nous utilisons exclusivement des produits biodégradables et respectueux de l'environnement. Nos méthodes permettent également d'économiser jusqu'à 80% d'eau par rapport à un lavage traditionnel."
+      "La durée d'un nettoyage intérieur varie généralement entre 2h et 4h ou plus selon le niveau de saleté et la taille du véhicule. Pour un SUV ou un monospace très sale, comptez jusqu'à + de 4h."
   },
   {
     question: "Proposez-vous le service à domicile ?",
     answer:
-      "Oui, nous nous déplaçons chez vous ou sur votre lieu de travail sans frais supplémentaires dans un rayon de 15km. Au-delà, un supplément kilométrique s'applique."
+      "Oui, nous nous déplaçons chez vous ou sur votre lieu de travail."
   },
   {
     question: "Comment réserver un rendez-vous ?",
@@ -30,7 +25,7 @@ const faqs = [
   {
     question: "Quels moyens de paiement acceptez-vous ?",
     answer:
-      "Nous acceptons les paiements par carte bancaire, espèces, virement et chèques. Pour les professionnels, un paiement différé sur facture est possible après établissement d'un contrat."
+      "Nous acceptons les paiements par carte bancaire, espèces, virement et chèques. Un paiement différé sur facture est possible."
   },
 ];
 
