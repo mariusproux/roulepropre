@@ -5,11 +5,11 @@ import { ArrowRight } from "lucide-react";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-[85vh] flex items-center bg-gradient-to-br from-blue-100 via-blue-50 to-green-100 overflow-hidden pt-16 pb-8">
+    <section className="relative min-h-[70vh] flex items-center bg-gradient-to-br from-blue-100 via-blue-50 to-green-100 overflow-hidden pt-16 pb-8">
       <div className="container-custom relative z-20">
         <div className="grid md:grid-cols-2 gap-8 items-center">
           <div className="space-y-4 animate-fade-in flex flex-col justify-center order-2 md:order-1">
-            <Badge className="bg-yellow-100 text-gray-900 px-3 py-1.5 text-xs font-medium w-fit rounded-full">
+            <Badge className="bg-yellow-100 text-gray-900 px-3 py-1 text-xs font-medium w-fit rounded-full">
               ✋ Plus de 50 voitures nettoyées ce mois-ci !
             </Badge>
             
@@ -44,9 +44,9 @@ const HeroSection = () => {
             <div className="relative z-10 animate-scale-in">
               <div className="absolute inset-0 bg-blue-400/20 rounded-full blur-3xl scale-110"></div>
               <img
-                src="/lovable-uploads/fbc53842-1cfa-4b40-bbf5-3289f6a111de.png"
+                src="/lovable-uploads/c0bf4170-965e-40b7-b9cc-65555718f693.png"
                 alt="ROULE PROPRE Logo"
-                className="relative w-[300px] h-[300px] md:w-[400px] md:h-[400px] object-contain"
+                className="relative w-[280px] h-[280px] md:w-[350px] md:h-[350px] object-contain"
               />
             </div>
           </div>
