@@ -8,7 +8,7 @@ const services = [
   {
     id: "interieur",
     title: "Nettoyage Intérieur Simple",
-    description: "Soin complet de l'habitacle, du sol au plafond",
+    description: "Soin complet de l'habitacle",
     price: "À partir de 69€",
     duration: "~2 heures",
     features: [
