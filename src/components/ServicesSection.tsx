@@ -4,8 +4,8 @@ const services = [{
   description: "Redonnez vie à l'habitacle de votre voiture avec l'aspiration complète de l'habitacle et du coffre, le nettoyage du tableau de bord, des vitreries intérieures et des espaces difficiles d'accès. En plus nous éliminons également les odeurs désagréables.",
   icon: "🧹"
 }, {
-  title: "Nettoyage Extérieur Haut de Gamme",
-  description: "Une brillance incomparable grâce à nos techniques avancées et produits premium pour une finition éclatante.",
+  title: "Nettoyage intérieur",
+  description: "Aspiration et Shampouinage des sièges, moquettes ou tapis. Éliminez les contaminants visibles ou non sur vos sièges, moquettes ou tapis et remettez-les comme neufs. Que ce soit des sièges tissu, cuir ou alcantara, tout en utilisant les produits adaptés à la surface.",
   icon: "💦"
 }, {
   title: "Formule Express",
