@@ -25,10 +25,7 @@ const ServicesSection = () => {
       <div className="container-custom">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="mb-4 text-gray-900">Nos Services </h2>
-          <p className="text-gray-600 text-lg">
-            Découvrez notre gamme complète de services de nettoyage automobile
-            adaptés à tous les besoins et tous les véhicules.
-          </p>
+          <p className="text-gray-600 text-lg">Découvrez nos services de nettoyage automobile adaptés à tous les besoins et tous les véhicules</p>
         </div>
 
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
