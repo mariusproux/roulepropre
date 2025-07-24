@@ -1,7 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 const services = [{
   title: "Nettoyage Intérieur Complet",
-  description: "Redonnez vie à l'habitacle de votre voiture avec notre nettoyage intérieur complet, incluant sièges, tableaux de bord et espaces difficiles d'accès.",
+  description: "Redonnez vie à l'habitacle de votre voiture avec l'aspiration complète de l'habitacle et du coffre, le nettoyage du tableau de bord, des vitreries intérieures et des espaces difficiles d'accès. En plus nous éliminons également les odeurs désagréables.",
   icon: "🧹"
 }, {
   title: "Nettoyage Extérieur Haut de Gamme",
