@@ -12,8 +12,8 @@ const services = [{
   description: "Vos phares sont ternis, ou opaques ? Ne les changez plus nous les restaurons, vous les retrouverez comme neufs. Ce service vous permettra de retrouver de la visibilité, mais aussi de passer le contrôle technique plus facilement.",
   icon: "⚡"
 }, {
-  title: "Décontamination et Lustrage",
-  description: "Éliminez les contaminants invisibles et restaurez la brillance d'origine de votre peinture.",
+  title: "Nettoyage Jantes",
+  description: "Avec cette formule, les jantes alu de votre automobile seront propres.",
   icon: "✨"
 }, {
   title: "Service à Domicile / Bureau",
