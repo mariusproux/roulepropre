@@ -1,51 +1,40 @@
+import { CheckCircle } from "lucide-react";
+import { Card } from "@/components/ui/card";
+
 const InformationsPratiquesSection = () => {
+  const items = [
+    "Une prise électrique doit être disponible à moins de 30 mètres.",
+    "Un supplément peut être appliqué en cas de salissures importantes (taches incrustées, poils d'animaux, etc.).",
+    "Le gabarit du véhicule peut entraîner un ajustement tarifaire.",
+    "Frais de déplacement applicables selon la distance.",
+    "Tarifs exonérés de TVA selon l'article 293 B du CGI. Une facture détaillée est remise après chaque intervention.",
+    "Service mobile : intervention sur tout le sud Loire et ses environs, à votre domicile ou votre lieu de travail.",
+    "Produits écologiques : solutions respectueuses des matériaux et de l'environnement.",
+    "Résultat impeccable : intérieur propre, sain et rafraîchi.",
+    "Paiement simplifié : espèces, carte bancaire (sans contact), virement (factures)."
+  ];
+
   return (
-    <section className="section-padding bg-rp-blue/20">
+    <section className="bg-rp-blue/20 pt-12 pb-16">
       <div className="container-custom">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="mb-4">Informations pratiques</h2>
+        <div className="text-center mb-6">
+          <h2>Informations pratiques</h2>
         </div>
 
-        <div className="max-w-4xl mx-auto">
-          <ul className="space-y-3 text-gray-700">
-            <li className="flex items-start">
-              <span className="mr-3 mt-1">•</span>
-              <span>Une prise électrique doit être disponible à moins de 30 mètres.</span>
-            </li>
-            <li className="flex items-start">
-              <span className="mr-3 mt-1">•</span>
-              <span>Un supplément peut être appliqué en cas de salissures importantes (taches incrustées, poils d'animaux, etc.).</span>
-            </li>
-            <li className="flex items-start">
-              <span className="mr-3 mt-1">•</span>
-              <span>Le gabarit du véhicule peut entraîner un ajustement tarifaire.</span>
-            </li>
-            <li className="flex items-start">
-              <span className="mr-3 mt-1">•</span>
-              <span>Frais de déplacement applicables selon la distance.</span>
-            </li>
-            <li className="flex items-start">
-              <span className="mr-3 mt-1">•</span>
-              <span>Tarifs exonérés de TVA selon l'article 293 B du CGI. Une facture détaillée est remise après chaque intervention.</span>
-            </li>
-            <li className="flex items-start">
-              <span className="mr-3 mt-1">•</span>
-              <span>Service mobile : intervention sur tout le sud Loire et ses environs, à votre domicile ou votre lieu de travail.</span>
-            </li>
-            <li className="flex items-start">
-              <span className="mr-3 mt-1">•</span>
-              <span>Produits écologiques : solutions respectueuses des matériaux et de l'environnement.</span>
-            </li>
-            <li className="flex items-start">
-              <span className="mr-3 mt-1">•</span>
-              <span>Résultat impeccable : intérieur propre, sain et rafraîchi.</span>
-            </li>
-            <li className="flex items-start">
-              <span className="mr-3 mt-1">•</span>
-              <span>Paiement simplifié : espèces, carte bancaire (sans contact), virement (factures).</span>
-            </li>
-          </ul>
-        </div>
+        <Card className="max-w-[800px] mx-auto bg-white shadow-lg p-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4">
+            {items.map((item, index) => (
+              <div key={index} className="flex items-start gap-3">
+                <CheckCircle 
+                  size={20} 
+                  color="#1E88E5" 
+                  className="mt-0.5 flex-shrink-0" 
+                />
+                <span className="text-base leading-6 text-left">{item}</span>
+              </div>
+            ))}
+          </div>
+        </Card>
       </div>
     </section>
   );
