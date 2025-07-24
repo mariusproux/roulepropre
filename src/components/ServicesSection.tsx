@@ -16,8 +16,8 @@ const services = [{
   description: "Avec cette formule, les jantes alu de votre automobile seront propres.",
   icon: "✨"
 }, {
-  title: "Service à Domicile / Bureau",
-  description: "Nous venons à vous ! Profitez de nos services sans vous déplacer, où que vous soyez.",
+  title: "Services Mobile",
+  description: "Nous venons à vous ! Profitez de nos services sans vous déplacer, où que vous soyez. Sur votre lieu de vie ou votre lieu de travail, que vous soyez particuliers ou professionnels nous sommes là.",
   icon: "🏠"
 }];
 const ServicesSection = () => {
