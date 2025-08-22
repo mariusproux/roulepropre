@@ -1,5 +1,5 @@
-
 import { Linkedin, Instagram, Phone, Mail } from "lucide-react";
+import { siteConfig } from "../config/site";
 
 const Footer = () => {
   return (
@@ -16,7 +16,7 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4">
               <a
-                href="#"
+                href={siteConfig.social.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="h-10 w-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-rp-accent transition-colors"
@@ -25,14 +25,14 @@ const Footer = () => {
                 <Linkedin size={18} />
               </a>
               <a
-                href="#"
+                href={siteConfig.social.instagram}
                 className="h-10 w-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-rp-accent transition-colors"
                 aria-label="Instagram"
               >
                 <Instagram size={18} />
               </a>
               <a
-                href="#"
+                href={siteConfig.social.google}
                 className="h-10 w-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-rp-accent transition-colors"
                 aria-label="Avis Google"
               >
