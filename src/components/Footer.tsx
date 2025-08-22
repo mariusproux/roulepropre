@@ -1,5 +1,5 @@
 
-import { Facebook, Instagram, Phone, Mail } from "lucide-react";
+import { Linkedin, Instagram, Phone, Mail } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -17,10 +17,12 @@ const Footer = () => {
             <div className="flex space-x-4">
               <a
                 href="#"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="h-10 w-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-rp-accent transition-colors"
-                aria-label="Facebook"
+                aria-label="LinkedIn"
               >
-                <Facebook size={18} />
+                <Linkedin size={18} />
               </a>
               <a
                 href="#"
