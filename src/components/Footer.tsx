@@ -35,6 +35,8 @@ const Footer = () => {
               </a>
               <a
                 href={siteConfig.social.google}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="h-10 w-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-rp-accent transition-colors"
                 aria-label="Avis Google"
               >
