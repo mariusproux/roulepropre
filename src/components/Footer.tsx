@@ -120,26 +120,28 @@ const Footer = () => {
             <p className="text-gray-400 text-sm">
               &copy; {new Date().getFullYear()} ROULE PROPRE. Tous droits réservés.
             </p>
-            <div className="flex space-x-4 mt-4 md:mt-0">
-              <a
-                href="#"
-                className="text-gray-400 text-sm hover:text-white transition-colors"
-              >
-                Mentions Légales
-              </a>
-              <a
-                href="#"
-                className="text-gray-400 text-sm hover:text-white transition-colors"
-              >
-                CGU
-              </a>
-              <a
-                href="#"
-                className="text-gray-400 text-sm hover:text-white transition-colors"
-              >
-                Politique de Confidentialité
-              </a>
-            </div>
+            <nav aria-label="Liens légaux" className="mt-4 md:mt-0">
+              <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4 text-center sm:text-right">
+                <a
+                  href="/mentions-legales"
+                  className="text-gray-400 text-sm hover:text-white focus:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-rp-accent focus:ring-offset-2 focus:ring-offset-gray-900 rounded px-1"
+                >
+                  Mentions Légales
+                </a>
+                <a
+                  href="/cgu"
+                  className="text-gray-400 text-sm hover:text-white focus:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-rp-accent focus:ring-offset-2 focus:ring-offset-gray-900 rounded px-1"
+                >
+                  CGU
+                </a>
+                <a
+                  href="/politique-de-confidentialite"
+                  className="text-gray-400 text-sm hover:text-white focus:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-rp-accent focus:ring-offset-2 focus:ring-offset-gray-900 rounded px-1"
+                >
+                  Politique de Confidentialité
+                </a>
+              </div>
+            </nav>
           </div>
         </div>
       </div>
