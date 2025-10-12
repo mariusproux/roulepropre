@@ -1,7 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight } from "lucide-react";
+import { useState } from "react";
+import BookingModal from "@/components/BookingModal";
+
 const HeroSection = () => {
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
+
   return <section className="relative min-h-[70vh] flex items-center bg-gradient-to-br from-blue-100 via-blue-50 to-green-100 overflow-hidden pt-16 pb-8">
       <div className="container-custom relative z-20">
         <div className="grid md:grid-cols-2 gap-8 items-center">
@@ -18,7 +23,10 @@ const HeroSection = () => {
             <p className="text-base md:text-lg text-gray-600 max-w-xl leading-relaxed">Services de nettoyage automobile à votre domicile ou sur votre lieux de travail</p>
             
             <div className="flex flex-col sm:flex-row gap-3 pt-2">
-              <Button className="bg-blue-500 hover:bg-blue-600 text-white font-medium px-6 py-3 rounded-md transition-all duration-300 hover:shadow-lg">
+              <Button 
+                onClick={() => setIsBookingOpen(true)}
+                className="bg-blue-500 hover:bg-blue-600 text-white font-medium px-6 py-3 rounded-md transition-all duration-300 hover:shadow-lg"
+              >
                 Prendre Rendez-vous
               </Button>
               <Button variant="outline" className="bg-white text-blue-500 font-medium px-6 py-3 rounded-md border border-blue-500 hover:bg-blue-50 transition-all duration-300" onClick={() => {
@@ -39,6 +47,11 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
+      
+      <BookingModal 
+        isOpen={isBookingOpen}
+        onClose={() => setIsBookingOpen(false)}
+      />
     </section>;
 };
 export default HeroSection;

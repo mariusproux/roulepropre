@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Check, ArrowRight } from "lucide-react";
 import KilometricRateModal from "./KilometricRateModal";
+import BookingModal from "./BookingModal";
 
 const services = [
   {
@@ -59,20 +60,25 @@ const services = [
 
 const SelectServiceSection = () => {
   const [selectedService, setSelectedService] = useState(services[2].id);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isKilometricModalOpen, setIsKilometricModalOpen] = useState(false);
+  const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
 
   const handleReservation = () => {
-    setIsModalOpen(true);
+    setIsKilometricModalOpen(true);
   };
 
-  const handleModalConfirm = () => {
-    setIsModalOpen(false);
-    // Ici on pourrait rediriger vers la page de réservation
-    console.log("Redirection vers la réservation...");
+  const handleKilometricConfirm = () => {
+    setIsKilometricModalOpen(false);
+    setIsBookingModalOpen(true);
   };
 
-  const handleModalClose = () => {
-    setIsModalOpen(false);
+  const handleKilometricClose = () => {
+    setIsKilometricModalOpen(false);
+  };
+
+  const getSelectedServiceName = () => {
+    const service = services.find(s => s.id === selectedService);
+    return service ? service.title : "";
   };
 
   return (
@@ -204,9 +210,15 @@ const SelectServiceSection = () => {
       </div>
       
       <KilometricRateModal
-        isOpen={isModalOpen}
-        onClose={handleModalClose}
-        onConfirm={handleModalConfirm}
+        isOpen={isKilometricModalOpen}
+        onClose={handleKilometricClose}
+        onConfirm={handleKilometricConfirm}
+      />
+      
+      <BookingModal
+        isOpen={isBookingModalOpen}
+        onClose={() => setIsBookingModalOpen(false)}
+        selectedService={getSelectedServiceName()}
       />
     </section>
   );
