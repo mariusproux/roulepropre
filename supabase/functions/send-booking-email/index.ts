@@ -27,11 +27,12 @@ const handler = async (req: Request): Promise<Response> => {
     const { name, email, phone, service, message }: BookingEmailRequest = await req.json();
 
     console.log("Processing booking request from:", email);
+    console.log("RESEND_API_KEY exists:", !!Deno.env.get("RESEND_API_KEY"));
 
     // Send email to business owner
     const emailResponse = await resend.emails.send({
-      from: "Roule Propre <onboarding@resend.dev>",
-      to: ["contact@roulepropre.fr"], // TODO: Replace with actual business email
+      from: "onboarding@resend.dev",
+      to: ["mariusproux@gmail.com"], // Testing email - update after domain verification
       replyTo: email,
       subject: `Nouvelle demande de rendez-vous - ${service}`,
       html: `
@@ -143,7 +144,15 @@ const handler = async (req: Request): Promise<Response> => {
       `,
     });
 
-    console.log("Email sent successfully:", emailResponse);
+    console.log("Resend API response:", JSON.stringify(emailResponse, null, 2));
+
+    // Check if Resend returned an error
+    if (emailResponse.error) {
+      console.error("Resend API error:", emailResponse.error);
+      throw new Error(emailResponse.error.message || "Email sending failed");
+    }
+
+    console.log("Email sent successfully to:", emailResponse.data?.id);
 
     return new Response(JSON.stringify({ 
       success: true,
