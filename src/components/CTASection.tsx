@@ -1,10 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import { useState } from "react";
-import BookingModal from "@/components/BookingModal";
 
 const CTASection = () => {
-  const [isBookingOpen, setIsBookingOpen] = useState(false);
 
   return (
     <section className="py-20 bg-blue-green-gradient relative overflow-hidden">
@@ -22,7 +19,11 @@ const CTASection = () => {
             Réservez dès maintenant un rendez-vous pour bénéficier de nos services de nettoyage professionnels et découvrir la différence ROULE PROPRE.
           </p>
           <Button 
-            onClick={() => setIsBookingOpen(true)}
+            onClick={() => {
+              document.getElementById("services")?.scrollIntoView({
+                behavior: "smooth"
+              });
+            }}
             className="btn-primary group text-lg px-8 py-6"
           >
             Prendre Rendez-vous Maintenant
@@ -37,11 +38,6 @@ const CTASection = () => {
           </div>
         </div>
       </div>
-      
-      <BookingModal 
-        isOpen={isBookingOpen}
-        onClose={() => setIsBookingOpen(false)}
-      />
     </section>
   );
 };

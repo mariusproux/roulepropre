@@ -2,12 +2,10 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-import BookingModal from "@/components/BookingModal";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isBookingOpen, setIsBookingOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -72,7 +70,11 @@ const Navbar = () => {
             FAQ
           </a>
           <Button 
-            onClick={() => setIsBookingOpen(true)}
+            onClick={() => {
+              document.getElementById("services")?.scrollIntoView({
+                behavior: "smooth"
+              });
+            }}
             className="bg-blue-500 hover:bg-blue-600 text-white font-medium px-4 py-2 rounded-md"
           >
             Prendre Rendez-vous
@@ -122,7 +124,9 @@ const Navbar = () => {
             </a>
             <Button 
               onClick={() => {
-                setIsBookingOpen(true);
+                document.getElementById("services")?.scrollIntoView({
+                  behavior: "smooth"
+                });
                 setIsMobileMenuOpen(false);
               }}
               className="bg-blue-500 hover:bg-blue-600 text-white font-medium w-full"
@@ -132,11 +136,6 @@ const Navbar = () => {
           </div>
         </div>
       )}
-      
-      <BookingModal 
-        isOpen={isBookingOpen}
-        onClose={() => setIsBookingOpen(false)}
-      />
     </header>
   );
 };
