@@ -1,7 +1,12 @@
-import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowLeft, ArrowRight, Star } from "lucide-react";
+import { Star } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 
 const testimonials = [
   {
@@ -35,20 +40,7 @@ const testimonials = [
 ];
 
 const TestimonialsSection = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
   const { elementRef, isVisible } = useScrollAnimation();
-
-  const nextTestimonial = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
-    );
-  };
-
-  const prevTestimonial = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1
-    );
-  };
 
   return (
     <section id="temoignages" className="section-padding bg-white">
@@ -62,14 +54,22 @@ const TestimonialsSection = () => {
         </div>
 
         <div className="max-w-4xl mx-auto">
-          <div className="relative">
-            <div className="overflow-hidden">
-              <div
-                className="flex transition-transform duration-500 ease-in-out"
-                style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-              >
-                {testimonials.map((testimonial, index) => (
-                  <Card key={index} className="flex-shrink-0 w-full">
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            plugins={[
+              Autoplay({
+                delay: 5000,
+              }),
+            ]}
+            className="w-full"
+          >
+            <CarouselContent>
+              {testimonials.map((testimonial, index) => (
+                <CarouselItem key={index}>
+                  <Card className="border-none shadow-md">
                     <CardContent className="p-8 md:p-10">
                       <div className="flex mb-4">
                         {[...Array(5)].map((_, i) => (
@@ -100,39 +100,10 @@ const TestimonialsSection = () => {
                       </div>
                     </CardContent>
                   </Card>
-                ))}
-              </div>
-            </div>
-
-            <button
-              onClick={prevTestimonial}
-              className="absolute top-1/2 left-0 -translate-y-1/2 -translate-x-4 md:-translate-x-6 bg-white rounded-full p-2 shadow-lg hover:bg-gray-50 transition-colors"
-              aria-label="Témoignage précédent"
-            >
-              <ArrowLeft size={20} />
-            </button>
-
-            <button
-              onClick={nextTestimonial}
-              className="absolute top-1/2 right-0 -translate-y-1/2 translate-x-4 md:translate-x-6 bg-white rounded-full p-2 shadow-lg hover:bg-gray-50 transition-colors"
-              aria-label="Témoignage suivant"
-            >
-              <ArrowRight size={20} />
-            </button>
-          </div>
-
-          <div className="flex justify-center space-x-2 mt-6">
-            {testimonials.map((_, index) => (
-              <button
-                key={index}
-                className={`h-2 w-2 rounded-full transition-colors ${
-                  currentIndex === index ? "bg-rp-accent" : "bg-gray-300"
-                }`}
-                onClick={() => setCurrentIndex(index)}
-                aria-label={`Voir témoignage ${index + 1}`}
-              ></button>
-            ))}
-          </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
         </div>
         </div>
       </div>
