@@ -37,7 +37,7 @@ const KilometricRateModal = ({ isOpen, onClose, onConfirm }: KilometricRateModal
           <div className="space-y-3">
             <div className="flex justify-between items-center py-2 border-b border-gray-100">
               <span className="font-medium text-gray-700">0 - 5 km</span>
-              <span className="font-semibold text-rp-accent">Gratuit</span>
+              <span className="font-semibold text-gray-700">0,50 € / km</span>
             </div>
             <div className="flex justify-between items-center py-2 border-b border-gray-100">
               <span className="font-medium text-gray-700">5 - 15 km</span>
