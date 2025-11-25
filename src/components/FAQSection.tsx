@@ -1,10 +1,10 @@
-
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const faqs = [
   {
@@ -30,9 +30,12 @@ const faqs = [
 ];
 
 const FAQSection = () => {
+  const { elementRef, isVisible } = useScrollAnimation();
+  
   return (
     <section id="faq" className="section-padding bg-rp-gray/30">
       <div className="container-custom">
+        <div ref={elementRef} className={`transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="mb-4">Questions Fréquentes</h2>
           <p className="text-gray-600 text-lg">
@@ -66,6 +69,7 @@ const FAQSection = () => {
               Contactez-nous directement
             </a>
           </p>
+        </div>
         </div>
       </div>
     </section>
