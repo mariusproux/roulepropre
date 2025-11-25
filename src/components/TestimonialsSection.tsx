@@ -1,7 +1,7 @@
-
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowLeft, ArrowRight, Star } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const testimonials = [
   {
@@ -36,6 +36,7 @@ const testimonials = [
 
 const TestimonialsSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const { elementRef, isVisible } = useScrollAnimation();
 
   const nextTestimonial = () => {
     setCurrentIndex((prevIndex) =>
@@ -52,6 +53,7 @@ const TestimonialsSection = () => {
   return (
     <section id="temoignages" className="section-padding bg-white">
       <div className="container-custom">
+        <div ref={elementRef} className={`transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="mb-4">Ce que disent nos clients</h2>
           <p className="text-gray-600 text-lg">
@@ -131,6 +133,7 @@ const TestimonialsSection = () => {
               ></button>
             ))}
           </div>
+        </div>
         </div>
       </div>
     </section>

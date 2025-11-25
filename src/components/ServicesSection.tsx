@@ -1,5 +1,6 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Wind, Droplets, Lightbulb, CircleDot, Truck } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 const services = [{
   title: "Nettoyage Intérieur Complet",
   description: "Redonnez vie à l'habitacle de votre voiture avec l'aspiration complète de l'habitacle et du coffre, le nettoyage du tableau de bord, des vitreries intérieures et des espaces difficiles d'accès. En plus nous éliminons également les odeurs désagréables.",
@@ -22,7 +23,10 @@ const services = [{
   icon: Truck
 }];
 const ServicesSection = () => {
+  const { elementRef, isVisible } = useScrollAnimation();
+  
   return <section id="services" className="section-padding bg-white">
+      <div ref={elementRef} className={`transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
       <div className="container-custom">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="mb-4 text-gray-900">Nos Services </h2>
@@ -30,7 +34,7 @@ const ServicesSection = () => {
         </div>
 
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {services.map((service, index) => <Card key={index} className="card-hover bg-card-gradient border-none shadow-md overflow-hidden">
+          {services.map((service, index) => <Card key={index} className="card-hover bg-card-gradient border-none shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
               <CardHeader className="pb-2">
                 <div className="mb-4">
                   <service.icon className="w-10 h-10 text-primary" strokeWidth={1.5} />
@@ -44,6 +48,7 @@ const ServicesSection = () => {
               </CardContent>
             </Card>)}
         </div>
+      </div>
       </div>
     </section>;
 };
