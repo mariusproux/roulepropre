@@ -21,7 +21,7 @@ const HeroSection = () => {
             <div className="flex flex-col sm:flex-row gap-3 pt-2">
               <Button 
                 onClick={() => {
-                  document.getElementById("services")?.scrollIntoView({
+                  document.getElementById("packages-selector")?.scrollIntoView({
                     behavior: "smooth"
                   });
                 }}
@@ -30,7 +30,7 @@ const HeroSection = () => {
                 Prendre Rendez-vous
               </Button>
               <Button variant="outline" className="bg-white text-blue-500 font-medium px-6 py-3 rounded-md border border-blue-500 hover:bg-blue-50 transition-all duration-300" onClick={() => {
-              document.getElementById("services")?.scrollIntoView({
+              document.getElementById("packages-selector")?.scrollIntoView({
                 behavior: "smooth"
               });
             }}>

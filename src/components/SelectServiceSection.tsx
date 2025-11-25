@@ -82,7 +82,7 @@ const SelectServiceSection = () => {
   };
 
   return (
-    <section id="choisir" className="section-padding bg-rp-blue/20">
+    <section id="packages-selector" className="section-padding bg-rp-blue/20">
       <div className="container-custom">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="mb-4">Choisissez Votre Prestation</h2>

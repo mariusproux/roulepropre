@@ -71,7 +71,7 @@ const Navbar = () => {
           </a>
           <Button 
             onClick={() => {
-              document.getElementById("services")?.scrollIntoView({
+              document.getElementById("packages-selector")?.scrollIntoView({
                 behavior: "smooth"
               });
             }}
@@ -124,7 +124,7 @@ const Navbar = () => {
             </a>
             <Button 
               onClick={() => {
-                document.getElementById("services")?.scrollIntoView({
+                document.getElementById("packages-selector")?.scrollIntoView({
                   behavior: "smooth"
                 });
                 setIsMobileMenuOpen(false);
