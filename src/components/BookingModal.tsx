@@ -8,6 +8,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { useToast } from "@/hooks/use-toast";
 import { Calendar, Mail, Phone, User } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 
 const bookingSchema = z.object({
   name: z.string().trim().min(2, "Le nom doit contenir au moins 2 caractères").max(100, "Le nom est trop long"),
@@ -37,18 +38,31 @@ const BookingModal = ({ isOpen, onClose, selectedService }: BookingModalProps) =
 
   const onSubmit = async (data: BookingFormData) => {
     try {
-      // Préparer les données pour l'appel API via Make
+      // Préparer les données pour l'envoi
       const bookingData = {
-        ...data,
+        name: data.name,
+        email: data.email,
+        phone: data.phone,
         service: selectedService || "Service non spécifié",
-        timestamp: new Date().toISOString(),
+        message: data.message || "",
       };
 
-      // TODO: Remplacer par l'URL du webhook Make
-      console.log("Données de réservation:", bookingData);
-      
-      // Simulation d'un appel API
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      console.log("Envoi de la demande de rendez-vous...");
+
+      // Appel à l'edge function pour envoyer l'email
+      const { data: response, error } = await supabase.functions.invoke(
+        'send-booking-email',
+        {
+          body: bookingData,
+        }
+      );
+
+      if (error) {
+        console.error("Erreur lors de l'envoi:", error);
+        throw error;
+      }
+
+      console.log("Email envoyé avec succès:", response);
 
       toast({
         title: "Demande envoyée !",
@@ -58,9 +72,10 @@ const BookingModal = ({ isOpen, onClose, selectedService }: BookingModalProps) =
       reset();
       onClose();
     } catch (error) {
+      console.error("Erreur lors de l'envoi de la demande:", error);
       toast({
         title: "Erreur",
-        description: "Une erreur est survenue. Veuillez réessayer.",
+        description: "Erreur lors de l'envoi, veuillez réessayer.",
         variant: "destructive",
       });
     }
@@ -169,7 +184,7 @@ const BookingModal = ({ isOpen, onClose, selectedService }: BookingModalProps) =
               className="flex-1 bg-primary hover:bg-primary/90"
               disabled={isSubmitting}
             >
-              {isSubmitting ? "Envoi..." : "Envoyer la demande"}
+              {isSubmitting ? "Envoi en cours..." : "Envoyer la demande"}
             </Button>
           </div>
         </form>
