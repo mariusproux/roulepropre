@@ -20,7 +20,7 @@ const CTASection = () => {
           </p>
           <Button 
             onClick={() => {
-              document.getElementById("services")?.scrollIntoView({
+              document.getElementById("packages-selector")?.scrollIntoView({
                 behavior: "smooth"
               });
             }}
