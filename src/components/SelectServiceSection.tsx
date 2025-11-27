@@ -10,13 +10,12 @@ const services = [
     id: "interieur",
     title: "Nettoyage Intérieur Simple",
     description: "Soin complet de l'habitacle",
-    price: "À partir de 69€",
+    price: "À partir de 50€",
     duration: "~2 heures",
     features: [
       "Nettoyage des plastiques, vitreries intérieures", 
       "Aspiration complète de l'habitacle et du coffre", 
       "Aspiration tapis, moquette", 
-      "Nettoyage contour des portes et contour du coffre", 
       "Habitacle parfumé"
     ]
   },
