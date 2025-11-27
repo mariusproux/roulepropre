@@ -10,7 +10,7 @@ const services = [{
   description: "Aspiration et Shampouinage des sièges, moquettes ou tapis. Éliminez les contaminants visibles ou non sur vos sièges, moquettes ou tapis et remettez-les comme neufs. Que ce soit des sièges tissu, cuir ou alcantara, tout en utilisant les produits adaptés à la surface.",
   icon: Droplets
 }, {
-  title: "Restauration de phares",
+  title: "Rénovation des optiques",
   description: "Vos phares sont ternis, ou opaques ? Ne les changez plus nous les restaurons, vous les retrouverez comme neufs. Ce service vous permettra de retrouver de la visibilité, mais aussi de passer le contrôle technique plus facilement.",
   icon: Lightbulb
 }, {
