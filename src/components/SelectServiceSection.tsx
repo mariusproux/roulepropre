@@ -39,17 +39,15 @@ const services = [
     id: "interieur-shampoing",
     title: "Nettoyage Intérieur Shampoing",
     description: "Pour un intérieur rafraîchi en profondeur",
-    price: "À partir de 89€",
+    price: "À partir de 70€",
     duration: "~2.5 heures",
     features: [
       "Nettoyage des plastiques, vitreries intérieures",
       "Aspiration complète de l'habitacle et du coffre",
       "Aspiration tapis, moquette",
-      "Nettoyage contour des portes et contour du coffre",
-      "Habitacle parfumé",
       "Shampoing des tapis et moquette",
-      "Shampoing des sièges tissu",
-      "Nettoyage des sièges cuir"
+      "Nettoyage des sièges tissu, cuir ou alcantara",
+      "Habitacle parfumé"
     ],
     excludedFeatures: [
       "Shampoing du coffre non inclus"
