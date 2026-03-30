@@ -29,11 +29,11 @@ const services = [
   },
   {
     id: "complet",
-    title: "Formule Complète",
-    description: "Le meilleur des deux mondes",
-    price: "À partir de 119€",
-    duration: "~3 heures",
-    features: ["Intérieur + Extérieur", "Traitement cire premium", "Protection longue durée", "Parfum offert"]
+    title: "Nettoyage des Jantes Alu",
+    description: "Éclat et protection pour vos jantes",
+    price: "À partir de 20€ par jantes",
+    duration: "~1 heure",
+    features: ["Rinçage initial", "Application du nettoyant jantes", "Brossage", "Décontamination ferreuse (si nécessaire)", "Rinçage complet", "Nettoyage manuel des détails", "Séchage"]
   },
   {
     id: "interieur-shampoing",
