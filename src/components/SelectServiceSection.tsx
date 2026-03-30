@@ -21,11 +21,11 @@ const services = [
   },
   {
     id: "exterieur",
-    title: "Nettoyage Extérieur",
-    description: "Brillance et protection",
-    price: "À partir de 59€",
+    title: "Rénovation des optiques",
+    description: "Restauration complète de vos phares",
+    price: "À partir de 80€",
     duration: "~1.5 heures",
-    features: ["Lavage carrosserie", "Nettoyage jantes", "Polissage vitres", "Cire protectrice"]
+    features: ["Masquage des contours", "Ponçage à l'eau", "Polissage", "Nettoyage Intermédiaire", "Protection finale"]
   },
   {
     id: "complet",
