@@ -10,32 +10,28 @@ import Autoplay from "embla-carousel-autoplay";
 
 const testimonials = [
   {
-    name: "Marie L.",
-    role: "Propriétaire Audi A3",
+    name: "Teinturier Jordan",
     content:
-      "Je suis impressionnée par le résultat ! Ma voiture n'avait jamais été aussi propre, même les taches tenaces sur les sièges ont disparu. Service rapide et personnel très aimable.",
+      "Arthur a été très professionnel et nous a rendu notre camion aussi propre que lorsque nous l'avons acheté. Faites appel à ses services, vous ne serez pas déçu ! 😉",
     rating: 5,
   },
   {
-    name: "Thomas D.",
-    role: "Flotte d'entreprise",
+    name: "Morgan Cruanes",
     content:
-      "Nous faisons appel à ROULE PROPRE pour l'entretien mensuel de notre flotte de 8 véhicules. Leur service est toujours impeccable et leur flexibilité un vrai plus pour notre entreprise.",
+      "Travail parfait pour le prix, franchement rien à dire, ma voiture était comme neuve, et pourtant il y avait du boulot ! Merci Arthur, vous pouvez lui faire confiance les yeux fermés !",
     rating: 5,
   },
   {
-    name: "Sophie M.",
-    role: "Propriétaire BMW Série 3",
+    name: "L'AR.E de Pédaler Alban",
     content:
-      "Le traitement céramique appliqué sur ma voiture lui a donné une brillance incroyable ! Et plus de 3 mois après, l'effet déperlant est toujours présent. Je recommande vivement.",
+      "Arthur prend le temps de bien faire les choses !",
     rating: 5,
   },
   {
-    name: "Alexandre F.",
-    role: "Propriétaire Tesla Model 3",
+    name: "Simon ROCHARD",
     content:
-      "Service à domicile très pratique, je n'ai pas eu à bouger de chez moi. Intervention professionnelle et résultat impeccable sur mon véhicule électrique.",
-    rating: 4,
+      "Je recommande à 100%. Après l'intervention d'Arthur, ma voiture est comme neuve. En plus il m'a facilité la tâche en se déplaçant à mon domicile. Une valeur sûre !!",
+    rating: 5,
   },
 ];
 
@@ -95,7 +91,6 @@ const TestimonialsSection = () => {
                         </div>
                         <div className="ml-4">
                           <p className="font-medium text-gray-900">{testimonial.name}</p>
-                          <p className="text-sm text-gray-600">{testimonial.role}</p>
                         </div>
                       </div>
                     </CardContent>
