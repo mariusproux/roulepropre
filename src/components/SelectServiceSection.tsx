@@ -10,7 +10,7 @@ const services = [
     id: "interieur",
     title: "Nettoyage Intérieur Simple",
     description: "Soin complet de l'habitacle",
-    price: "À partir de 50€",
+    price: "À partir de 60€",
     duration: "~2 heures",
     features: [
       "Nettoyage des plastiques, vitreries intérieures", 
@@ -39,7 +39,7 @@ const services = [
     id: "interieur-shampoing",
     title: "Nettoyage Intérieur Shampoing",
     description: "Pour un intérieur rafraîchi en profondeur",
-    price: "À partir de 70€",
+    price: "À partir de 80€",
     duration: "~2.5 heures",
     features: [
       "Nettoyage des plastiques, vitreries intérieures",
