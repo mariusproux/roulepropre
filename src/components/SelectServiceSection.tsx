@@ -23,7 +23,7 @@ const services = [
     id: "exterieur",
     title: "Rénovation des optiques",
     description: "Restauration complète de vos phares",
-    price: "À partir de 80€",
+    price: "À partir de 90€",
     duration: "~1.5 heures",
     features: ["Masquage des contours", "Ponçage à l'eau", "Polissage", "Nettoyage Intermédiaire", "Protection finale"]
   },
