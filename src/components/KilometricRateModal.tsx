@@ -37,15 +37,15 @@ const KilometricRateModal = ({ isOpen, onClose, onConfirm }: KilometricRateModal
           <div className="space-y-3">
             <div className="flex justify-between items-center py-2 border-b border-gray-100">
               <span className="font-medium text-gray-700">0 - 5 km</span>
-              <span className="font-semibold text-gray-700">0,50 € / km</span>
+              <span className="font-semibold text-gray-700">0,65 € / km</span>
             </div>
             <div className="flex justify-between items-center py-2 border-b border-gray-100">
               <span className="font-medium text-gray-700">5 - 15 km</span>
-              <span className="font-semibold text-gray-700">0,70 € / km</span>
+              <span className="font-semibold text-gray-700">0,90 € / km</span>
             </div>
             <div className="flex justify-between items-center py-2">
               <span className="font-medium text-gray-700">15 - 20+ km</span>
-              <span className="font-semibold text-gray-700">0,90 € / km</span>
+              <span className="font-semibold text-gray-700">1,20 € / km</span>
             </div>
           </div>
         </div>
