@@ -1,26 +1,41 @@
-import { Linkedin, Instagram, Phone, Mail } from "lucide-react";
-import { siteConfig } from "../config/site";
+import { Linkedin, Instagram, Phone, Mail, MapPin } from "lucide-react";
+import { siteConfig } from "@/config/site";
+
+const quickLinks = [
+  { href: "#services", label: "Nos services" },
+  { href: "#choisir", label: "Choisir une prestation" },
+  { href: "#temoignages", label: "Témoignages" },
+  { href: "#faq", label: "FAQ" },
+];
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white pt-16 pb-8">
+    <footer className="bg-rp-deep pt-16 pb-28 text-white md:pb-8">
       <div className="container-custom">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4">
+          {/* Marque */}
           <div>
-            <div className="font-bold text-2xl mb-4">
-              <span className="text-rp-sky">ROULE</span> PROPRE
+            <div className="flex items-center gap-2.5">
+              <img
+                src="/lovable-uploads/c0bf4170-965e-40b7-b9cc-65555718f693.png"
+                alt="Logo Roule Propre"
+                className="h-10 w-10"
+              />
+              <span className="font-display text-xl font-extrabold">
+                <span className="text-rp-sky">ROULE</span> PROPRE
+              </span>
             </div>
-            <p className="text-gray-400 mb-6">
-              Services de nettoyage automobile avec technologies avancées,
-              prestations personnalisées, et résultats premium.
+            <p className="mt-5 max-w-xs text-sm leading-relaxed text-blue-100/60">
+              Lavage et detailing automobile écologique, à domicile, dans la région nantaise
+              et le sud Loire.
             </p>
-            <div className="flex space-x-4">
+            <div className="mt-6 flex gap-3">
               <a
                 href={siteConfig.social.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="h-10 w-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-rp-accent transition-colors"
                 aria-label="LinkedIn"
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 transition-colors hover:bg-rp-blue"
               >
                 <Linkedin size={18} />
               </a>
@@ -28,8 +43,8 @@ const Footer = () => {
                 href={siteConfig.social.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="h-10 w-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-rp-accent transition-colors"
                 aria-label="Instagram"
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 transition-colors hover:bg-rp-blue"
               >
                 <Instagram size={18} />
               </a>
@@ -37,114 +52,92 @@ const Footer = () => {
                 href={siteConfig.social.google}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="h-10 w-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-rp-accent transition-colors"
                 aria-label="Avis Google"
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 font-bold transition-colors hover:bg-rp-blue"
               >
-                <span className="font-bold">G</span>
+                G
               </a>
             </div>
           </div>
 
+          {/* Liens rapides */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Liens Rapides</h3>
-            <ul className="space-y-3">
+            <h3 className="font-display text-base font-semibold">Liens rapides</h3>
+            <ul className="mt-4 space-y-3 text-sm">
+              {quickLinks.map((link) => (
+                <li key={link.href}>
+                  <a href={link.href} className="text-blue-100/60 transition-colors hover:text-white">
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <h3 className="font-display text-base font-semibold">Contact</h3>
+            <ul className="mt-4 space-y-3 text-sm">
               <li>
                 <a
-                  href="#services"
-                  className="text-gray-400 hover:text-white transition-colors"
+                  href={`tel:${siteConfig.contact.phoneTel}`}
+                  className="flex items-center gap-3 text-blue-100/60 transition-colors hover:text-white"
                 >
-                  Nos Services
+                  <Phone size={16} className="text-rp-sky" />
+                  {siteConfig.contact.phoneDisplay}
                 </a>
               </li>
               <li>
                 <a
-                  href="#choisir"
-                  className="text-gray-400 hover:text-white transition-colors"
+                  href={`mailto:${siteConfig.contact.email}`}
+                  className="flex items-center gap-3 text-blue-100/60 transition-colors hover:text-white"
                 >
-                  Choisir une Prestation
+                  <Mail size={16} className="text-rp-sky" />
+                  {siteConfig.contact.email}
                 </a>
               </li>
-              <li>
-                <a
-                  href="#temoignages"
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  Témoignages
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#faq"
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  FAQ
-                </a>
+              <li className="flex items-center gap-3 text-blue-100/60">
+                <MapPin size={16} className="text-rp-sky" />
+                Aigrefeuille-sur-Maine &amp; sud Loire
               </li>
             </ul>
           </div>
 
+          {/* Horaires */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Contact</h3>
-            <ul className="space-y-3">
-              <li className="flex items-center">
-                <Phone size={18} className="mr-3 text-rp-sky" />
-                <a href="tel:0683704784" className="text-gray-400 hover:text-white transition-colors">06 83 70 47 84</a>
-              </li>
-              <li className="flex items-center">
-                <Mail size={18} className="mr-3 text-rp-sky" />
-                <a
-                  href="mailto:contact@roulepropre.fr"
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  contact@roulepropre.fr
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Horaires</h3>
-            <ul className="space-y-2">
+            <h3 className="font-display text-base font-semibold">Horaires</h3>
+            <ul className="mt-4 space-y-2.5 text-sm">
               <li className="flex justify-between">
-                <span className="text-gray-400">Lundi - Vendredi</span>
-                <span className="text-white">8h - 18h</span>
+                <span className="text-blue-100/60">Lundi – Vendredi</span>
+                <span>8 h – 18 h</span>
               </li>
               <li className="flex justify-between">
-                <span className="text-gray-400">Samedi</span>
-                <span className="text-white">Fermé</span>
+                <span className="text-blue-100/60">Samedi</span>
+                <span>Fermé</span>
               </li>
               <li className="flex justify-between">
-                <span className="text-gray-400">Dimanche</span>
-                <span className="text-white">Fermé</span>
+                <span className="text-blue-100/60">Dimanche</span>
+                <span>Fermé</span>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-gray-800 mt-12 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-400 text-sm">
-              &copy; {new Date().getFullYear()} ROULE PROPRE. Tous droits réservés.
+        <div className="mt-12 border-t border-white/10 pt-8">
+          <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
+            <p className="text-sm text-blue-100/50">
+              © {new Date().getFullYear()} Roule Propre. Tous droits réservés.
             </p>
-            <nav aria-label="Liens légaux" className="mt-4 md:mt-0">
-              <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4 text-center sm:text-right">
-                <a
-                  href="/mentions-legales"
-                  className="text-gray-400 text-sm hover:text-white focus:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-rp-accent focus:ring-offset-2 focus:ring-offset-gray-900 rounded px-1"
-                >
-                  Mentions Légales
+            <nav aria-label="Liens légaux">
+              <div className="flex flex-col items-center gap-2 text-sm sm:flex-row sm:gap-5">
+                <a href="/mentions-legales" className="text-blue-100/50 transition-colors hover:text-white">
+                  Mentions légales
                 </a>
-                <a
-                  href="/cgu"
-                  className="text-gray-400 text-sm hover:text-white focus:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-rp-accent focus:ring-offset-2 focus:ring-offset-gray-900 rounded px-1"
-                >
+                <a href="/cgu" className="text-blue-100/50 transition-colors hover:text-white">
                   CGU
                 </a>
-                <a
-                  href="/politique-de-confidentialite"
-                  className="text-gray-400 text-sm hover:text-white focus:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-rp-accent focus:ring-offset-2 focus:ring-offset-gray-900 rounded px-1"
-                >
-                  Politique de Confidentialité
+                <a href="/politique-de-confidentialite" className="text-blue-100/50 transition-colors hover:text-white">
+                  Politique de confidentialité
                 </a>
               </div>
             </nav>

@@ -67,14 +67,19 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Custom colors for ROULE PROPRE
+				// Custom colors for ROULE PROPRE — direction "Éclat & eau"
 				"rp": {
-					"blue": "#D3E4FD",
-					"green": "#F2FCE2",
-					"peach": "#FDE1D3",
-					"gray": "#F1F0FB",
-					"accent": "#1EAEDB",
-					"sky": "#33C3F0"
+					"deep": "#06203A",   // navy profond (surfaces sombres, texte fort)
+					"blue": "#0B63E5",   // bleu primaire de marque
+					"blueDark": "#0A4FBE",
+					"accent": "#1EAEDB", // cyan eau (conservé)
+					"sky": "#5CD2F2",    // reflet clair
+					"foam": "#EAF6FC",   // tint très clair
+					"mist": "#F6FBFE",   // fond
+					// alias hérités (sections pas encore refondues)
+					"green": "#EAF6FC",
+					"peach": "#EAF6FC",
+					"gray": "#EEF4F8"
 				}
 			},
 			borderRadius: {
@@ -138,10 +143,10 @@ export default {
 				"float": "float 6s infinite ease-in-out"
 			},
 			backgroundImage: {
-				"blue-green-gradient": "linear-gradient(90deg, #D3E4FD, #F2FCE2)",
-				"blue-peach-gradient": "linear-gradient(90deg, #D3E4FD, #FDE1D3)",
-				"hero-gradient": "linear-gradient(135deg, #D3E4FD 0%, #F2FCE2 50%, #FDE1D3 100%)",
-				"card-gradient": "linear-gradient(180deg, rgba(255,255,255,0.9) 0%, rgba(249,250,251,0.9) 100%)"
+				"blue-green-gradient": "linear-gradient(120deg, #EAF6FC 0%, #DCEEFB 100%)",
+				"blue-peach-gradient": "linear-gradient(120deg, #EAF6FC 0%, #E3F4FA 100%)",
+				"hero-gradient": "linear-gradient(160deg, #06203A 0%, #082B4D 60%, #06203A 100%)",
+				"card-gradient": "linear-gradient(180deg, rgba(255,255,255,0.95) 0%, rgba(240,248,253,0.9) 100%)"
 			}
 		}
 	},

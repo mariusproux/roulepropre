@@ -9,10 +9,11 @@ import PartnersSection from "@/components/PartnersSection";
 import FAQSection from "@/components/FAQSection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
+import MobileBookingBar from "@/components/MobileBookingBar";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-blue-50 to-green-50">
+    <div className="min-h-screen overflow-x-hidden bg-background">
       <Navbar />
       <HeroSection />
       <ServicesSection />
@@ -23,6 +24,7 @@ const Index = () => {
       <FAQSection />
       <CTASection />
       <Footer />
+      <MobileBookingBar />
     </div>
   );
 };

@@ -6,9 +6,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { useToast } from "@/hooks/use-toast";
-import { Calendar, Mail, Phone, User } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
+import { Calendar, Mail, Phone, User, MessageCircle } from "lucide-react";
+import { siteConfig } from "@/config/site";
 
 const bookingSchema = z.object({
   name: z.string().trim().min(2, "Le nom doit contenir au moins 2 caractères").max(100, "Le nom est trop long"),
@@ -26,78 +25,67 @@ interface BookingModalProps {
 }
 
 const BookingModal = ({ isOpen, onClose, selectedService }: BookingModalProps) => {
-  const { toast } = useToast();
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitting },
+    formState: { errors },
     reset,
   } = useForm<BookingFormData>({
     resolver: zodResolver(bookingSchema),
   });
 
-  const onSubmit = async (data: BookingFormData) => {
-    try {
-      // Préparer les données pour l'envoi
-      const bookingData = {
-        name: data.name,
-        email: data.email,
-        phone: data.phone,
-        service: selectedService || "Service non spécifié",
-        message: data.message || "",
-      };
-
-      console.log("Envoi de la demande de rendez-vous...");
-
-      // Appel à l'edge function pour envoyer l'email
-      const { data: response, error } = await supabase.functions.invoke(
-        'send-booking-email',
-        {
-          body: bookingData,
-        }
-      );
-
-      if (error) {
-        console.error("Erreur lors de l'envoi:", error);
-        throw error;
-      }
-
-      console.log("Email envoyé avec succès:", response);
-
-      toast({
-        title: "Demande envoyée !",
-        description: "Nous vous contacterons très bientôt pour confirmer votre rendez-vous.",
-      });
-
-      reset();
-      onClose();
-    } catch (error) {
-      console.error("Erreur lors de l'envoi de la demande:", error);
-      toast({
-        title: "Erreur",
-        description: "Erreur lors de l'envoi, veuillez réessayer.",
-        variant: "destructive",
-      });
+  // Construit le texte de la demande à partir des champs du formulaire
+  const buildMessage = (data: BookingFormData) => {
+    const service = selectedService || "Service non spécifié";
+    const lines = [
+      "Bonjour, je souhaite prendre rendez-vous.",
+      "",
+      `Service : ${service}`,
+      `Nom : ${data.name}`,
+      `Email : ${data.email}`,
+      `Téléphone : ${data.phone}`,
+    ];
+    if (data.message?.trim()) {
+      lines.push(`Message : ${data.message.trim()}`);
     }
+    return lines.join("\n");
+  };
+
+  // Ouvre WhatsApp avec le message pré-rempli
+  const sendViaWhatsApp = (data: BookingFormData) => {
+    const text = encodeURIComponent(buildMessage(data));
+    window.open(`https://wa.me/${siteConfig.contact.whatsapp}?text=${text}`, "_blank", "noopener,noreferrer");
+    reset();
+    onClose();
+  };
+
+  // Ouvre le client mail avec sujet et corps pré-remplis
+  const sendViaEmail = (data: BookingFormData) => {
+    const service = selectedService || "Service non spécifié";
+    const subject = encodeURIComponent(`Demande de rendez-vous - ${service}`);
+    const body = encodeURIComponent(buildMessage(data));
+    window.location.href = `mailto:${siteConfig.contact.email}?subject=${subject}&body=${body}`;
+    reset();
+    onClose();
   };
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-md">
+      <DialogContent className="rounded-3xl sm:max-w-md">
         <DialogHeader>
-          <DialogTitle className="text-xl font-semibold text-gray-900">
+          <DialogTitle className="font-display text-2xl font-bold text-rp-deep">
             Demande de rendez-vous
           </DialogTitle>
-          <DialogDescription className="text-gray-600">
-            Remplissez le formulaire et nous vous contacterons rapidement
+          <DialogDescription className="text-rp-deep/60">
+            Remplissez le formulaire, puis envoyez votre demande par WhatsApp ou email.
           </DialogDescription>
         </DialogHeader>
 
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 py-4">
+        <form className="space-y-4 py-4">
           {selectedService && (
-            <div className="bg-primary/10 p-3 rounded-lg">
-              <p className="text-sm font-medium text-gray-700">
-                Service sélectionné : <span className="text-primary">{selectedService}</span>
+            <div className="rounded-xl bg-rp-foam p-3.5">
+              <p className="text-sm font-medium text-rp-deep/70">
+                Prestation : <span className="font-semibold text-rp-blue">{selectedService}</span>
               </p>
             </div>
           )}
@@ -169,22 +157,35 @@ const BookingModal = ({ isOpen, onClose, selectedService }: BookingModalProps) =
             )}
           </div>
 
-          <div className="flex gap-3 pt-4">
+          <div className="space-y-3 pt-4">
+            <p className="text-sm text-gray-600 text-center">
+              Choisissez votre moyen d'envoi :
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <Button
+                type="button"
+                onClick={handleSubmit(sendViaWhatsApp)}
+                className="flex-1 bg-[#25D366] hover:bg-[#1da851] text-white"
+              >
+                <MessageCircle className="h-4 w-4" />
+                WhatsApp
+              </Button>
+              <Button
+                type="button"
+                onClick={handleSubmit(sendViaEmail)}
+                className="flex-1 bg-primary hover:bg-primary/90"
+              >
+                <Mail className="h-4 w-4" />
+                Email
+              </Button>
+            </div>
             <Button
               type="button"
               variant="outline"
               onClick={onClose}
-              className="flex-1"
-              disabled={isSubmitting}
+              className="w-full"
             >
               Annuler
-            </Button>
-            <Button
-              type="submit"
-              className="flex-1 bg-primary hover:bg-primary/90"
-              disabled={isSubmitting}
-            >
-              {isSubmitting ? "Envoi en cours..." : "Envoyer la demande"}
             </Button>
           </div>
         </form>

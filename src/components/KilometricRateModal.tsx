@@ -12,56 +12,49 @@ interface KilometricRateModalProps {
 const KilometricRateModal = ({ isOpen, onClose, onConfirm }: KilometricRateModalProps) => {
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-md">
+      <DialogContent className="rounded-3xl sm:max-w-md">
         <DialogHeader className="text-center">
-          <div className="flex justify-center mb-4">
-            <div className="bg-rp-blue/20 p-3 rounded-full">
-              <Car className="h-8 w-8 text-rp-accent" />
+          <div className="mb-4 flex justify-center">
+            <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-rp-blue to-rp-accent text-white shadow-[0_12px_28px_-10px_hsl(216_91%_47%/0.7)]">
+              <Car className="h-8 w-8" />
             </div>
           </div>
-          <DialogTitle className="text-xl font-semibold text-gray-900">
-            Barème Kilométrique
+          <DialogTitle className="font-display text-2xl font-bold text-rp-deep">
+            Frais de déplacement
           </DialogTitle>
-          <DialogDescription className="text-gray-600">
-            Tarification selon la distance de déplacement
+          <DialogDescription className="text-rp-deep/60">
+            Un petit forfait kilométrique s'ajoute selon la distance.
           </DialogDescription>
         </DialogHeader>
-        
+
         <div className="space-y-4 py-4">
-          <div className="flex items-center gap-2 text-sm text-gray-700 bg-rp-blue/10 p-3 rounded-lg">
-            <MapPin className="h-4 w-4 text-rp-accent flex-shrink-0" />
-            <span className="font-medium">Point de départ :</span>
-            <span>36 Avenue de Nantes, 44140 Aigrefeuille-sur-Maine</span>
+          <div className="flex items-start gap-2 rounded-xl bg-rp-foam p-3.5 text-sm text-rp-deep/80">
+            <MapPin className="mt-0.5 h-4 w-4 flex-shrink-0 text-rp-blue" />
+            <span>
+              <span className="font-semibold">Départ :</span> 36 Avenue de Nantes, 44140
+              Aigrefeuille-sur-Maine
+            </span>
           </div>
-          
-          <div className="space-y-3">
-            <div className="flex justify-between items-center py-2 border-b border-gray-100">
-              <span className="font-medium text-gray-700">0 - 5 km</span>
-              <span className="font-semibold text-gray-700">0,65 € / km</span>
-            </div>
-            <div className="flex justify-between items-center py-2 border-b border-gray-100">
-              <span className="font-medium text-gray-700">5 - 15 km</span>
-              <span className="font-semibold text-gray-700">0,90 € / km</span>
-            </div>
-            <div className="flex justify-between items-center py-2">
-              <span className="font-medium text-gray-700">15 - 20+ km</span>
-              <span className="font-semibold text-gray-700">1,20 € / km</span>
-            </div>
+
+          <div className="space-y-1">
+            {[
+              ["0 – 5 km", "0,65 € / km"],
+              ["5 – 15 km", "0,90 € / km"],
+              ["15 – 20+ km", "1,20 € / km"],
+            ].map(([range, rate]) => (
+              <div key={range} className="flex items-center justify-between border-b border-rp-foam py-2.5 last:border-0">
+                <span className="font-medium text-rp-deep/70">{range}</span>
+                <span className="font-semibold tabular-nums text-rp-deep">{rate}</span>
+              </div>
+            ))}
           </div>
         </div>
-        
-        <div className="flex gap-3 pt-4">
-          <Button
-            variant="outline"
-            onClick={onClose}
-            className="flex-1"
-          >
+
+        <div className="flex gap-3 pt-2">
+          <Button variant="outline" onClick={onClose} className="flex-1 rounded-full">
             Annuler
           </Button>
-          <Button
-            onClick={onConfirm}
-            className="flex-1 bg-rp-accent hover:bg-rp-sky text-white"
-          >
+          <Button onClick={onConfirm} className="btn-primary flex-1">
             Valider et continuer
           </Button>
         </div>

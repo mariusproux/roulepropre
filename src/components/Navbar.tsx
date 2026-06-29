@@ -1,137 +1,101 @@
-
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+
+const navLinks = [
+  { href: "#services", label: "Services" },
+  { href: "#choisir", label: "Choisir ma prestation" },
+  { href: "#temoignages", label: "Témoignages" },
+  { href: "#faq", label: "FAQ" },
+];
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const offset = window.scrollY;
-      if (offset > 50) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
+    handleScroll();
     window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const scrollToPackages = () => {
+    document.getElementById("packages-selector")?.scrollIntoView({ behavior: "smooth" });
+    setIsMobileMenuOpen(false);
+  };
+
+  // Sur le hero sombre (non scrollé) le texte est clair ; une fois scrollé, fond blanc + texte sombre.
+  const onLight = isScrolled || isMobileMenuOpen;
 
   return (
     <header
-      className={`fixed w-full top-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-white/90 shadow-md backdrop-blur-md py-3"
-          : "bg-transparent py-5"
+      className={`fixed top-0 z-50 w-full transition-all duration-300 ${
+        onLight ? "bg-white/85 py-3 shadow-[0_8px_30px_-12px_rgba(6,32,58,0.25)] backdrop-blur-md" : "bg-transparent py-5"
       }`}
     >
-      <div className="container-custom flex justify-between items-center">
-        <a href="/" className="flex items-center">
-          <img 
-            src="/lovable-uploads/c0bf4170-965e-40b7-b9cc-65555718f693.png" 
-            alt="ROULE PROPRE Logo"
-            className="h-12 w-12 mr-2"
+      <div className="container-custom flex items-center justify-between">
+        <a href="/" className="flex items-center gap-2.5">
+          <img
+            src="/lovable-uploads/c0bf4170-965e-40b7-b9cc-65555718f693.png"
+            alt="Logo Roule Propre"
+            className="h-11 w-11"
           />
-          <span className="text-xl font-bold text-gray-900">
+          <span
+            className={`font-display text-lg font-extrabold tracking-tight transition-colors ${
+              onLight ? "text-rp-deep" : "text-white"
+            }`}
+            style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
+          >
             ROULE PROPRE
           </span>
         </a>
 
-        {/* Desktop navigation */}
-        <nav className="hidden md:flex items-center space-x-8">
-          <a
-            href="#services"
-            className="text-gray-700 hover:text-blue-500 font-medium transition-colors"
-          >
-            Services
-          </a>
-          <a
-            href="#choisir"
-            className="text-gray-700 hover:text-blue-500 font-medium transition-colors"
-          >
-            Choisir ma prestation
-          </a>
-          <a
-            href="#temoignages"
-            className="text-gray-700 hover:text-blue-500 font-medium transition-colors"
-          >
-            Témoignages
-          </a>
-          <a
-            href="#faq"
-            className="text-gray-700 hover:text-blue-500 font-medium transition-colors"
-          >
-            FAQ
-          </a>
-          <Button 
-            onClick={() => {
-              document.getElementById("packages-selector")?.scrollIntoView({
-                behavior: "smooth"
-              });
-            }}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-medium px-4 py-2 rounded-md"
-          >
-            Prendre Rendez-vous
+        {/* Navigation bureau */}
+        <nav className="hidden items-center gap-8 md:flex">
+          {navLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className={`text-sm font-medium transition-colors ${
+                onLight ? "text-rp-deep/70 hover:text-rp-blue" : "text-blue-50/90 hover:text-white"
+              }`}
+            >
+              {link.label}
+            </a>
+          ))}
+          <Button onClick={scrollToPackages} className="btn-primary !px-5 !py-2.5 text-sm">
+            Prendre rendez-vous
           </Button>
         </nav>
 
-        {/* Mobile menu button */}
+        {/* Bouton menu mobile */}
         <button
-          className="md:hidden text-gray-700"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          className={`md:hidden ${onLight ? "text-rp-deep" : "text-white"}`}
+          onClick={() => setIsMobileMenuOpen((v) => !v)}
+          aria-label={isMobileMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
+          aria-expanded={isMobileMenuOpen}
         >
-          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          {isMobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
         </button>
       </div>
 
-      {/* Mobile menu */}
+      {/* Menu mobile */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-white shadow-lg animate-fade-in-fast">
-          <div className="container-custom py-4 flex flex-col space-y-4">
-            <a
-              href="#services"
-              className="text-gray-700 hover:text-blue-500 font-medium transition-colors py-2"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Services
-            </a>
-            <a
-              href="#choisir"
-              className="text-gray-700 hover:text-blue-500 font-medium transition-colors py-2"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Choisir ma prestation
-            </a>
-            <a
-              href="#temoignages"
-              className="text-gray-700 hover:text-blue-500 font-medium transition-colors py-2"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Témoignages
-            </a>
-            <a
-              href="#faq"
-              className="text-gray-700 hover:text-blue-500 font-medium transition-colors py-2"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              FAQ
-            </a>
-            <Button 
-              onClick={() => {
-                document.getElementById("packages-selector")?.scrollIntoView({
-                  behavior: "smooth"
-                });
-                setIsMobileMenuOpen(false);
-              }}
-              className="bg-blue-500 hover:bg-blue-600 text-white font-medium w-full"
-            >
-              Prendre Rendez-vous
+        <div className="border-t border-rp-foam bg-white md:hidden">
+          <div className="container-custom flex flex-col gap-1 py-4">
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="rounded-xl px-3 py-3 font-medium text-rp-deep/80 transition-colors hover:bg-rp-foam hover:text-rp-blue"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {link.label}
+              </a>
+            ))}
+            <Button onClick={scrollToPackages} className="btn-primary mt-2 w-full">
+              Prendre rendez-vous
             </Button>
           </div>
         </div>

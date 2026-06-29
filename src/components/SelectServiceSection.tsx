@@ -1,221 +1,169 @@
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Check, ArrowRight } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { Check } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import KilometricRateModal from "./KilometricRateModal";
 import BookingModal from "./BookingModal";
+import WaveDivider from "./WaveDivider";
+import { GlassPricingCard, type GlassPricingCardProps } from "@/components/ui/glass-pricing-card";
 
-const services = [
+type Plan = Omit<GlassPricingCardProps, "onReserve">;
+
+const plans: Plan[] = [
   {
-    id: "interieur",
-    title: "Nettoyage Intérieur Simple",
+    planName: "Intérieur simple",
     description: "Soin complet de l'habitacle",
-    price: "À partir de 60€",
-    duration: "~2 heures",
+    price: "Dès 60€",
+    duration: "~2 h",
     features: [
-      "Nettoyage des plastiques, vitreries intérieures", 
-      "Aspiration complète de l'habitacle et du coffre", 
-      "Aspiration tapis, moquette", 
-      "Habitacle parfumé"
-    ]
-  },
-  {
-    id: "exterieur",
-    title: "Rénovation des optiques",
-    description: "Restauration complète de vos phares",
-    price: "À partir de 90€",
-    duration: "~1.5 heures",
-    features: ["Masquage des contours", "Ponçage à l'eau", "Polissage", "Nettoyage Intermédiaire", "Protection finale"]
-  },
-  {
-    id: "complet",
-    title: "Nettoyage des Jantes Alu",
-    description: "Éclat et protection pour vos jantes",
-    price: "À partir de 20€ par jantes",
-    duration: "~1 heure",
-    features: ["Rinçage initial", "Application du nettoyant jantes", "Brossage", "Décontamination ferreuse (si nécessaire)", "Rinçage complet", "Nettoyage manuel des détails", "Séchage"]
-  },
-  {
-    id: "interieur-shampoing",
-    title: "Nettoyage Intérieur Shampoing",
-    description: "Pour un intérieur rafraîchi en profondeur",
-    price: "À partir de 80€",
-    duration: "~2.5 heures",
-    features: [
-      "Nettoyage des plastiques, vitreries intérieures",
-      "Aspiration complète de l'habitacle et du coffre",
-      "Aspiration tapis, moquette",
-      "Shampoing des tapis et moquette",
-      "Nettoyage des sièges tissu, cuir ou alcantara",
-      "Habitacle parfumé"
+      "Plastiques et vitres intérieures",
+      "Aspiration habitacle + coffre",
+      "Aspiration tapis et moquette",
+      "Habitacle parfumé",
     ],
-    excludedFeatures: [
-      "Shampoing du coffre non inclus"
-    ]
-  }
+  },
+  {
+    planName: "Intérieur shampoing",
+    description: "Un intérieur rafraîchi en profondeur",
+    price: "Dès 80€",
+    duration: "~2 h 30",
+    isPopular: true,
+    features: [
+      "Plastiques et vitres intérieures",
+      "Aspiration habitacle + coffre",
+      "Shampoing tapis et moquette",
+      "Sièges tissu, cuir ou alcantara",
+      "Habitacle parfumé",
+    ],
+    excludedFeatures: ["Shampoing du coffre non inclus"],
+  },
+  {
+    planName: "Rénovation des optiques",
+    description: "Restauration complète de vos phares",
+    price: "Dès 90€",
+    duration: "~1 h 30",
+    features: ["Masquage des contours", "Ponçage à l'eau", "Polissage", "Nettoyage intermédiaire", "Protection finale"],
+  },
+  {
+    planName: "Nettoyage jantes alu",
+    description: "Éclat et protection pour vos jantes",
+    price: "Dès 20€ / jante",
+    duration: "~1 h",
+    features: [
+      "Rinçage initial",
+      "Nettoyant jantes + brossage",
+      "Décontamination ferreuse si besoin",
+      "Rinçage et séchage",
+      "Détails à la main",
+    ],
+  },
 ];
 
 const SelectServiceSection = () => {
-  const [selectedService, setSelectedService] = useState(services[2].id);
+  const [bookingService, setBookingService] = useState("");
   const [isKilometricModalOpen, setIsKilometricModalOpen] = useState(false);
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
 
-  const handleReservation = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const logoRef = useRef<HTMLDivElement>(null);
+  const { elementRef: cardsRef, isVisible } = useScrollAnimation(0.1);
+
+  // Logo en filigrane qui suit le scroll (parallaxe), désactivé si reduced-motion.
+  useEffect(() => {
+    const section = sectionRef.current;
+    const logo = logoRef.current;
+    if (!section || !logo) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    let raf = 0;
+    const onScroll = () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        const rect = section.getBoundingClientRect();
+        // Progression du scroll à travers la section (-1 → 1)
+        const progress = (window.innerHeight / 2 - (rect.top + rect.height / 2)) / window.innerHeight;
+        logo.style.transform = `translate3d(-50%, calc(-50% + ${progress * 90}px), 0) rotate(${progress * 12}deg)`;
+      });
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      cancelAnimationFrame(raf);
+    };
+  }, []);
+
+  const handleReserve = (planName: string) => {
+    setBookingService(planName);
     setIsKilometricModalOpen(true);
   };
 
-  const handleKilometricConfirm = () => {
-    setIsKilometricModalOpen(false);
-    setIsBookingModalOpen(true);
-  };
-
-  const handleKilometricClose = () => {
-    setIsKilometricModalOpen(false);
-  };
-
-  const getSelectedServiceName = () => {
-    const service = services.find(s => s.id === selectedService);
-    return service ? service.title : "";
-  };
-
   return (
-    <section id="packages-selector" className="section-padding bg-rp-blue/20">
-      <div className="container-custom">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="mb-4">Choisissez Votre Prestation</h2>
-          <p className="text-gray-600 text-lg">
-            Sélectionnez le type de service qui correspond le mieux à vos besoins pour des résultats optimaux.
+    <section
+      ref={sectionRef}
+      id="packages-selector"
+      className="surface-deep relative overflow-hidden scroll-mt-20 py-28 text-white md:py-36"
+    >
+      {/* Vagues de transition : la section claire coule dans le bassin sombre, puis ressort */}
+      <WaveDivider fill="#EAF6FC" flip className="absolute left-0 top-0 z-[1] w-full" />
+      <WaveDivider fill="#EAF6FC" className="absolute bottom-0 left-0 z-[1] w-full" />
+
+      {/* Logo en filigrane qui suit le scroll */}
+      <div
+        ref={logoRef}
+        aria-hidden="true"
+        className="pointer-events-none absolute left-1/2 top-1/2 z-0 w-[min(120vw,1100px)] -translate-x-1/2 -translate-y-1/2 will-change-transform"
+      >
+        <img
+          src="/lovable-uploads/c0bf4170-965e-40b7-b9cc-65555718f693.png"
+          alt=""
+          className="mx-auto w-full opacity-[0.06] [filter:grayscale(1)_brightness(2)]"
+        />
+      </div>
+
+      {/* Halos ambiants */}
+      <div aria-hidden="true" className="absolute inset-0 z-0">
+        <div className="absolute -left-24 top-1/4 h-80 w-80 rounded-full bg-rp-accent/15 blur-3xl" />
+        <div className="absolute -right-24 bottom-1/4 h-80 w-80 rounded-full bg-rp-blue/25 blur-3xl" />
+      </div>
+
+      <div className="container-custom relative z-10">
+        <div className="mx-auto mb-14 max-w-2xl text-center">
+          <span className="eyebrow text-rp-sky">
+            <Check className="h-4 w-4" />
+            Tarifs
+          </span>
+          <h2 id="choisir" className="mt-4 scroll-mt-24 text-white">Choisissez votre prestation</h2>
+          <p className="mt-4 text-lg text-blue-100/75">
+            Sélectionnez votre formule et réservez en deux clics, par WhatsApp ou email.
           </p>
         </div>
 
-        <div className="max-w-6xl mx-auto">
-          {/* Première ligne - 3 cartes principales */}
-          <div className="grid md:grid-cols-3 gap-8 mb-8">
-            {services.slice(0, 3).map((service) => (
-              <Card
-                key={service.id}
-                className={`transition-all duration-300 cursor-pointer overflow-hidden h-full ${
-                  selectedService === service.id
-                    ? "border-2 border-rp-accent shadow-xl scale-105"
-                    : "border border-gray-200 hover:border-rp-accent/50 hover:shadow-lg"
-                }`}
-                onClick={() => setSelectedService(service.id)}
-              >
-                <div
-                  className={`h-2 w-full ${
-                    selectedService === service.id ? "bg-rp-accent" : "bg-gray-200"
-                  }`}
-                ></div>
-                <CardContent className="pt-6 pb-4 h-full flex flex-col">
-                  <div className="flex justify-between items-start mb-4">
-                    <div>
-                      <h3 className="font-semibold text-xl">{service.title}</h3>
-                      <p className="text-gray-600 text-sm mt-1">{service.description}</p>
-                    </div>
-                    {selectedService === service.id && (
-                      <div className="h-6 w-6 rounded-full bg-rp-accent flex items-center justify-center text-white">
-                        <Check size={14} />
-                      </div>
-                    )}
-                  </div>
-                  
-                  <div className="space-y-4 flex-grow">
-                    <div className="flex justify-between items-baseline border-t border-gray-100 pt-4">
-                      <p className="font-semibold">{service.price}</p>
-                      <span className="text-sm text-gray-500">{service.duration}</span>
-                    </div>
-                    
-                    <ul className="space-y-2">
-                      {service.features.map((feature, index) => (
-                        <li key={index} className="flex items-start">
-                          <span className="text-rp-accent mr-2 text-lg">✓</span>
-                          <span className="text-sm">{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-
-          {/* Deuxième ligne - Carte shampoing sous la première carte */}
-          <div className="grid md:grid-cols-3 gap-8">
-            <Card
-              key={services[3].id}
-              className={`transition-all duration-300 cursor-pointer overflow-hidden h-full ${
-                selectedService === services[3].id
-                  ? "border-2 border-rp-accent shadow-xl scale-105"
-                  : "border border-gray-200 hover:border-rp-accent/50 hover:shadow-lg"
-              }`}
-              onClick={() => setSelectedService(services[3].id)}
-            >
-              <div
-                className={`h-2 w-full ${
-                  selectedService === services[3].id ? "bg-rp-accent" : "bg-gray-200"
-                }`}
-              ></div>
-              <CardContent className="pt-6 pb-4 h-full flex flex-col">
-                <div className="flex justify-between items-start mb-4">
-                  <div>
-                    <h3 className="font-semibold text-xl">{services[3].title}</h3>
-                    <p className="text-gray-600 text-sm mt-1">{services[3].description}</p>
-                  </div>
-                  {selectedService === services[3].id && (
-                    <div className="h-6 w-6 rounded-full bg-rp-accent flex items-center justify-center text-white">
-                      <Check size={14} />
-                    </div>
-                  )}
-                </div>
-                
-                <div className="space-y-4 flex-grow">
-                  <div className="flex justify-between items-baseline border-t border-gray-100 pt-4">
-                    <p className="font-semibold">{services[3].price}</p>
-                    <span className="text-sm text-gray-500">{services[3].duration}</span>
-                  </div>
-                  
-                  <ul className="space-y-2">
-                    {services[3].features.map((feature, index) => (
-                      <li key={index} className="flex items-start">
-                        <span className="text-rp-accent mr-2 text-lg">✓</span>
-                        <span className="text-sm">{feature}</span>
-                      </li>
-                    ))}
-                    {services[3].excludedFeatures && services[3].excludedFeatures.map((feature, index) => (
-                      <li key={`excluded-${index}`} className="flex items-start">
-                        <span className="text-red-500 mr-2 text-lg">🚫</span>
-                        <span className="text-sm text-gray-500">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </CardContent>
-            </Card>
-            
-            {/* Espaces vides pour maintenir l'alignement */}
-            <div className="hidden md:block"></div>
-            <div className="hidden md:block"></div>
-          </div>
-        </div>
-        
-        <div className="text-center mt-12">
-          <Button className="btn-primary group" onClick={handleReservation}>
-            Réserver cette prestation
-            <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-          </Button>
+        <div ref={cardsRef} className="mx-auto flex max-w-6xl flex-wrap items-stretch justify-center gap-6">
+          {plans.map((plan, i) => (
+            <GlassPricingCard
+              key={plan.planName}
+              {...plan}
+              onReserve={() => handleReserve(plan.planName)}
+              style={{ animationDelay: `${i * 110}ms` }}
+              className={isVisible ? "fade-rise" : "opacity-0"}
+            />
+          ))}
         </div>
       </div>
-      
+
       <KilometricRateModal
         isOpen={isKilometricModalOpen}
-        onClose={handleKilometricClose}
-        onConfirm={handleKilometricConfirm}
+        onClose={() => setIsKilometricModalOpen(false)}
+        onConfirm={() => {
+          setIsKilometricModalOpen(false);
+          setIsBookingModalOpen(true);
+        }}
       />
-      
+
       <BookingModal
         isOpen={isBookingModalOpen}
         onClose={() => setIsBookingModalOpen(false)}
-        selectedService={getSelectedServiceName()}
+        selectedService={bookingService}
       />
     </section>
   );
