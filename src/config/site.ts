@@ -20,6 +20,6 @@ export const siteConfig = {
   social: {
     linkedin: "https://fr.linkedin.com/company/roule-propre",
     instagram: "https://www.instagram.com/roule_propre/",
-    google: "https://www.google.com/maps/place/ROULE+PROPRE/"
+    google: "https://www.google.com/maps/place/Roule+Propre+-+EI/@47.0773022,-1.404856,17z/data=!4m15!1m8!3m7!1s0x8e7da7f317d4e02f:0x3a24e7f44c63f51d!2sRoule+Propre+-+EI!8m2!3d47.0772986!4d-1.4022811!10e1!16s%2Fg%2F11vxqt8951!3m5!1s0x8e7da7f317d4e02f:0x3a24e7f44c63f51d!8m2!3d47.0772986!4d-1.4022811!16s%2Fg%2F11vxqt8951?entry=ttu&g_ep=EgoyMDI2MDgwOS4wIKXMDSoASAFQAw%3D%3D"
   }
 };
