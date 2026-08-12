@@ -29,14 +29,18 @@ const MentionsLegales = () => {
             <section>
               <h2 className="text-2xl font-semibold mb-4 text-primary">Contact</h2>
               <div className="space-y-2">
-                <p><strong>Email :</strong> [adresse email]</p>
-                <p><strong>Téléphone :</strong> [numéro de téléphone]</p>
+                <p><strong>Email :</strong> roule.propre44@gmail.com</p>
+                <p><strong>Téléphone :</strong> 06 83 70 47 84</p>
               </div>
             </section>
 
             <section>
               <h2 className="text-2xl font-semibold mb-4 text-primary">Hébergement du site</h2>
-              <p>[Nom de l'hébergeur + coordonnées]</p>
+              <p>
+                Le site est hébergé par Vercel Inc.<br />
+                340 S Lemon Ave #4133, Walnut, CA 91789, États-Unis<br />
+                Site web : <a href="https://vercel.com" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">vercel.com</a>
+              </p>
             </section>
 
             <section>
@@ -52,7 +56,7 @@ const MentionsLegales = () => {
               <p>
                 Les informations contenues sur ce site sont aussi précises que possible et le site remis à jour à différentes périodes de l'année, 
                 mais peut toutefois contenir des inexactitudes ou des omissions. Si vous constatez une lacune, erreur ou ce qui parait être un 
-                dysfonctionnement, merci de bien vouloir le signaler par email, à l'adresse [adresse email], en décrivant le problème de la façon 
+                dysfonctionnement, merci de bien vouloir le signaler par email, à l'adresse roule.propre44@gmail.com, en décrivant le problème de la façon 
                 la plus précise possible.
               </p>
             </section>
@@ -60,7 +64,7 @@ const MentionsLegales = () => {
             <section>
               <h2 className="text-2xl font-semibold mb-4 text-primary">Droit applicable</h2>
               <p>
-                Tout litige en relation avec l'utilisation du site <em>roule-propre.fr</em> est soumis au droit français. 
+                Tout litige en relation avec l'utilisation du site <em>roulepropre.fr</em> est soumis au droit français. 
                 Il est fait attribution exclusive de juridiction aux tribunaux compétents de Nantes.
               </p>
             </section>

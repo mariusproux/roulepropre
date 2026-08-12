@@ -17,7 +17,7 @@ const CGU = () => {
               <h2 className="text-2xl font-semibold mb-4 text-primary">Article 1 - Objet</h2>
               <p>
                 Les présentes Conditions Générales d'Utilisation (CGU) ont pour objet de définir les modalités et conditions d'utilisation 
-                du site internet <em>roule-propre.fr</em> ainsi que les services proposés par l'entreprise Roule Propre.
+                du site internet <em>roulepropre.fr</em> ainsi que les services proposés par l'entreprise Roule Propre.
               </p>
               <p>
                 Le site présente les services de nettoyage automobile et d'entretien de véhicules légers proposés par Roule Propre.
@@ -27,7 +27,7 @@ const CGU = () => {
             <section>
               <h2 className="text-2xl font-semibold mb-4 text-primary">Article 2 - Acceptation des CGU</h2>
               <p>
-                L'utilisation du site <em>roule-propre.fr</em> implique l'acceptation pleine et entière des conditions générales d'utilisation ci-après décrites. 
+                L'utilisation du site <em>roulepropre.fr</em> implique l'acceptation pleine et entière des conditions générales d'utilisation ci-après décrites. 
                 Ces conditions d'utilisation sont susceptibles d'être modifiées ou complétées à tout moment, sans préavis, 
                 aussi les utilisateurs du site sont invités à les consulter de manière régulière.
               </p>
@@ -36,7 +36,7 @@ const CGU = () => {
             <section>
               <h2 className="text-2xl font-semibold mb-4 text-primary">Article 3 - Accès au site</h2>
               <p>
-                Le site <em>roule-propre.fr</em> est accessible en tout endroit, 7j/7, 24h/24 sauf cas de force majeure, intervention programmée de maintenance, 
+                Le site <em>roulepropre.fr</em> est accessible en tout endroit, 7j/7, 24h/24 sauf cas de force majeure, intervention programmée de maintenance, 
                 panne informatique ou de télécommunication.
               </p>
               <p>
@@ -48,7 +48,7 @@ const CGU = () => {
             <section>
               <h2 className="text-2xl font-semibold mb-4 text-primary">Article 4 - Propriété intellectuelle</h2>
               <p>
-                La structure générale du site <em>roule-propre.fr</em>, ainsi que les textes, graphiques, images, sons et vidéos la composant, 
+                La structure générale du site <em>roulepropre.fr</em>, ainsi que les textes, graphiques, images, sons et vidéos la composant, 
                 sont la propriété de l'éditeur ou de ses partenaires. Toute représentation totale ou partielle de ce site par quelque procédé 
                 que ce soit, sans l'autorisation expresse de l'exploitant du site Internet constituerait une contrefaçon sanctionnée par 
                 les articles L 335-2 et suivants du Code de la propriété intellectuelle.
@@ -86,7 +86,7 @@ const CGU = () => {
               <h2 className="text-2xl font-semibold mb-4 text-primary">Article 7 - Liens hypertextes</h2>
               <p>
                 Le site peut contenir des liens hypertextes vers d'autres sites présents sur le réseau Internet. 
-                Les liens vers ces autres ressources vous font quitter le site <em>roule-propre.fr</em>.
+                Les liens vers ces autres ressources vous font quitter le site <em>roulepropre.fr</em>.
               </p>
               <p>
                 Il est possible de créer un lien vers les pages de ce site sans autorisation expresse de l'éditeur. 
@@ -115,7 +115,7 @@ const CGU = () => {
             <section>
               <h2 className="text-2xl font-semibold mb-4 text-primary">Article 10 - Contact</h2>
               <p>
-                Pour toute question relative aux présentes CGU, vous pouvez nous contacter à l'adresse : [adresse email]
+                Pour toute question relative aux présentes CGU, vous pouvez nous contacter à l'adresse : roule.propre44@gmail.com
               </p>
             </section>
           </div>

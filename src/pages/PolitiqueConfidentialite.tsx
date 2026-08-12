@@ -16,7 +16,7 @@ const PolitiqueConfidentialite = () => {
               <h2 className="text-2xl font-semibold mb-4 text-primary">1. Introduction</h2>
               <p>
                 La présente Politique de Confidentialité décrit la façon dont Roule Propre collecte, utilise et protège vos informations 
-                personnelles lorsque vous utilisez notre site web <em>roule-propre.fr</em>.
+                personnelles lorsque vous utilisez notre site web <em>roulepropre.fr</em>.
               </p>
               <p>
                 Conformément au Règlement Général sur la Protection des Données (RGPD) et à la loi Informatique et Libertés, 
@@ -34,7 +34,7 @@ const PolitiqueConfidentialite = () => {
                 Monsieur Arthur Godin<br />
                 36 Avenue de Nantes Le Clos des Vignes A24<br />
                 44140 Aigrefeuille-sur-Maine, France<br />
-                Email : [adresse email]</p>
+                Email : roule.propre44@gmail.com</p>
               </div>
             </section>
 
@@ -70,7 +70,7 @@ const PolitiqueConfidentialite = () => {
                 <li>Gérer la relation client et le suivi des prestations</li>
                 <li>Améliorer notre site web et nos services</li>
                 <li>Respecter nos obligations légales</li>
-                <li>Analyser l'utilisation du site (via [Google Analytics / autre service])</li>
+                <li>Analyser l'utilisation du site (via outil de mesure d'audience)</li>
               </ul>
             </section>
 
@@ -129,7 +129,7 @@ const PolitiqueConfidentialite = () => {
                 <li><strong>Droit de retrait du consentement :</strong> retirer votre consentement à tout moment</li>
               </ul>
               <p className="mt-4">
-                Pour exercer ces droits, contactez-nous à l'adresse : [adresse email]
+                Pour exercer ces droits, contactez-nous à l'adresse : roule.propre44@gmail.com
               </p>
             </section>
 
@@ -141,7 +141,7 @@ const PolitiqueConfidentialite = () => {
               </p>
               <ul className="list-disc pl-6 space-y-2">
                 <li>Mémoriser vos préférences</li>
-                <li>Analyser l'utilisation du site ([Google Analytics / autre service])</li>
+                <li>Analyser l'utilisation du site (outil de mesure d'audience)</li>
                 <li>Assurer le bon fonctionnement du site</li>
               </ul>
               <p className="mt-4">
@@ -177,7 +177,7 @@ const PolitiqueConfidentialite = () => {
                 Toute modification sera publiée sur cette page avec une date de mise à jour.
               </p>
               <p className="mt-4">
-                <strong>Dernière mise à jour :</strong> [Date de mise à jour]
+                <strong>Dernière mise à jour :</strong> 30 juin 2026
               </p>
             </section>
 
@@ -185,7 +185,7 @@ const PolitiqueConfidentialite = () => {
               <h2 className="text-2xl font-semibold mb-4 text-primary">14. Contact</h2>
               <p>
                 Pour toute question concernant cette Politique de Confidentialité ou vos données personnelles, 
-                contactez-nous à l'adresse : [adresse email]
+                contactez-nous à l'adresse : roule.propre44@gmail.com
               </p>
             </section>
           </div>
