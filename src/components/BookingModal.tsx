@@ -34,13 +34,20 @@ const BookingModal = ({ isOpen, onClose, selectedService }: BookingModalProps) =
     resolver: zodResolver(bookingSchema),
   });
 
+  const serviceName = selectedService || "Service non spécifié";
+
+  // Réinitialise le formulaire et ferme la modale après un envoi
+  const finish = () => {
+    reset();
+    onClose();
+  };
+
   // Construit le texte de la demande à partir des champs du formulaire
   const buildMessage = (data: BookingFormData) => {
-    const service = selectedService || "Service non spécifié";
     const lines = [
       "Bonjour, je souhaite prendre rendez-vous.",
       "",
-      `Service : ${service}`,
+      `Service : ${serviceName}`,
       `Nom : ${data.name}`,
       `Email : ${data.email}`,
       `Téléphone : ${data.phone}`,
@@ -55,18 +62,15 @@ const BookingModal = ({ isOpen, onClose, selectedService }: BookingModalProps) =
   const sendViaWhatsApp = (data: BookingFormData) => {
     const text = encodeURIComponent(buildMessage(data));
     window.open(`https://wa.me/${siteConfig.contact.whatsapp}?text=${text}`, "_blank", "noopener,noreferrer");
-    reset();
-    onClose();
+    finish();
   };
 
   // Ouvre le client mail avec sujet et corps pré-remplis
   const sendViaEmail = (data: BookingFormData) => {
-    const service = selectedService || "Service non spécifié";
-    const subject = encodeURIComponent(`Demande de rendez-vous - ${service}`);
+    const subject = encodeURIComponent(`Demande de rendez-vous - ${serviceName}`);
     const body = encodeURIComponent(buildMessage(data));
     window.location.href = `mailto:${siteConfig.contact.email}?subject=${subject}&body=${body}`;
-    reset();
-    onClose();
+    finish();
   };
 
   return (

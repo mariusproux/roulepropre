@@ -105,7 +105,7 @@ const TestimonialsSection = () => {
                         « {testimonial.content} »
                       </blockquote>
                       <figcaption className="mt-7 flex items-center gap-4">
-                        <span className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-rp-blue to-rp-accent font-display text-lg font-bold text-white">
+                        <span className="icon-chip h-12 w-12 rounded-full font-display text-lg font-bold">
                           {testimonial.name.charAt(0)}
                         </span>
                         <span className="font-semibold text-rp-deep">{testimonial.name}</span>

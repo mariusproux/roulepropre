@@ -1,6 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import { useScrollPast } from "@/hooks/useScrollPast";
+import { scrollToBooking } from "@/lib/utils";
+import { siteConfig } from "@/config/site";
 
 const navLinks = [
   { href: "#services", label: "Services" },
@@ -10,18 +13,11 @@ const navLinks = [
 ];
 
 const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
+  const isScrolled = useScrollPast(50);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 50);
-    handleScroll();
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const scrollToPackages = () => {
-    document.getElementById("packages-selector")?.scrollIntoView({ behavior: "smooth" });
+  const goToBooking = () => {
+    scrollToBooking();
     setIsMobileMenuOpen(false);
   };
 
@@ -37,7 +33,7 @@ const Navbar = () => {
       <div className="container-custom flex items-center justify-between">
         <a href="/" className="flex items-center gap-2.5">
           <img
-            src="/lovable-uploads/c0bf4170-965e-40b7-b9cc-65555718f693.png"
+            src={siteConfig.branding.logo}
             alt="Logo Roule Propre"
             className="h-11 w-11"
           />
@@ -64,7 +60,7 @@ const Navbar = () => {
               {link.label}
             </a>
           ))}
-          <Button onClick={scrollToPackages} className="btn-primary !px-5 !py-2.5 text-sm">
+          <Button onClick={goToBooking} className="btn-primary !px-5 !py-2.5 text-sm">
             Prendre rendez-vous
           </Button>
         </nav>
@@ -94,7 +90,7 @@ const Navbar = () => {
                 {link.label}
               </a>
             ))}
-            <Button onClick={scrollToPackages} className="btn-primary mt-2 w-full">
+            <Button onClick={goToBooking} className="btn-primary mt-2 w-full">
               Prendre rendez-vous
             </Button>
           </div>

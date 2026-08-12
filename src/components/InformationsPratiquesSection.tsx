@@ -38,7 +38,7 @@ const InformationsPratiquesSection = () => {
                 isVisible ? "animate-rise" : "opacity-0"
               }`}
             >
-              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-rp-blue to-rp-accent text-white shadow-[0_8px_18px_-8px_hsl(216_91%_47%/0.8)] transition-transform duration-300 group-hover:scale-110">
+              <span className="icon-chip h-11 w-11 shrink-0 rounded-xl shadow-[0_8px_18px_-8px_hsl(216_91%_47%/0.8)] transition-transform duration-300 group-hover:scale-110">
                 <item.icon className="h-5 w-5" strokeWidth={1.9} />
               </span>
               <span className="pt-0.5 text-[0.95rem] leading-relaxed text-rp-deep/80">{item.text}</span>

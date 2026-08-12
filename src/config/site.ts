@@ -10,6 +10,12 @@ export const siteConfig = {
     whatsapp: "33683704784",
     // Email de réception des demandes
     email: "contact@roulepropre.fr",
+    // Adresse de départ (base des frais de déplacement)
+    address: "36 Avenue de Nantes, 44140 Aigrefeuille-sur-Maine",
+  },
+  branding: {
+    // Logo principal (référencé partout depuis ici)
+    logo: "/lovable-uploads/c0bf4170-965e-40b7-b9cc-65555718f693.png",
   },
   social: {
     linkedin: "https://fr.linkedin.com/company/roule-propre",

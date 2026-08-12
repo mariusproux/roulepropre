@@ -17,7 +17,7 @@ const Footer = () => {
           <div>
             <div className="flex items-center gap-2.5">
               <img
-                src="/lovable-uploads/c0bf4170-965e-40b7-b9cc-65555718f693.png"
+                src={siteConfig.branding.logo}
                 alt="Logo Roule Propre"
                 className="h-10 w-10"
               />

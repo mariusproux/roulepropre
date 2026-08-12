@@ -1,32 +1,19 @@
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, MapPin, Leaf, Sparkles } from "lucide-react";
 import WaveDivider from "./WaveDivider";
 import WaterBackdrop from "./WaterBackdrop";
-
-const scrollToPackages = () =>
-  document.getElementById("packages-selector")?.scrollIntoView({ behavior: "smooth" });
+import { useParallax } from "@/hooks/useParallax";
+import { scrollToBooking } from "@/lib/utils";
+import { siteConfig } from "@/config/site";
 
 const HeroSection = () => {
   const parallaxRef = useRef<HTMLDivElement>(null);
 
-  // Parallaxe d'eau subtile : la profondeur réagit au scroll (désactivée si reduced-motion).
-  useEffect(() => {
-    const el = parallaxRef.current;
-    if (!el || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    let raf = 0;
-    const onScroll = () => {
-      cancelAnimationFrame(raf);
-      raf = requestAnimationFrame(() => {
-        el.style.transform = `translateY(${Math.min(window.scrollY, 600) * 0.18}px)`;
-      });
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      cancelAnimationFrame(raf);
-    };
-  }, []);
+  // Parallaxe d'eau subtile : la profondeur réagit au scroll.
+  useParallax(parallaxRef, (scrollY, el) => {
+    el.style.transform = `translateY(${Math.min(scrollY, 600) * 0.18}px)`;
+  });
 
   return (
     <section className="surface-deep relative overflow-hidden pt-28 pb-0 text-white md:pt-36">
@@ -70,11 +57,11 @@ const HeroSection = () => {
             </p>
 
             <div className="animate-rise flex flex-col gap-3 pt-2 sm:flex-row" style={{ animationDelay: "280ms" }}>
-              <Button onClick={scrollToPackages} className="btn-primary group">
+              <Button onClick={scrollToBooking} className="btn-primary group">
                 Prendre rendez-vous
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Button>
-              <Button onClick={scrollToPackages} className="btn-secondary border-white/25 bg-white/10 text-white hover:bg-white/20">
+              <Button onClick={scrollToBooking} className="btn-on-dark">
                 Voir les prestations
               </Button>
             </div>
@@ -91,7 +78,7 @@ const HeroSection = () => {
               <div aria-hidden="true" className="absolute inset-0 scale-110 rounded-full bg-rp-sky/30 blur-3xl" />
               <div className="gloss-sheen relative flex h-64 w-64 items-center justify-center rounded-full bg-white/95 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.5)] md:h-80 md:w-80">
                 <img
-                  src="/lovable-uploads/c0bf4170-965e-40b7-b9cc-65555718f693.png"
+                  src={siteConfig.branding.logo}
                   alt="Logo Roule Propre"
                   className="animate-float h-44 w-44 object-contain md:h-56 md:w-56"
                 />

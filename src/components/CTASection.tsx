@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Phone, ShieldCheck } from "lucide-react";
 import { siteConfig } from "@/config/site";
+import { scrollToBooking } from "@/lib/utils";
 import WaveDivider from "./WaveDivider";
 import WaterBackdrop from "./WaterBackdrop";
 
@@ -26,19 +27,11 @@ const CTASection = () => {
           </p>
 
           <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <Button
-              onClick={() =>
-                document.getElementById("packages-selector")?.scrollIntoView({ behavior: "smooth" })
-              }
-              className="btn-primary group text-base"
-            >
+            <Button onClick={scrollToBooking} className="btn-primary group text-base">
               Prendre rendez-vous
               <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
             </Button>
-            <a
-              href={`tel:${siteConfig.contact.phoneTel}`}
-              className="btn-secondary border-white/25 bg-white/10 text-white hover:bg-white/20"
-            >
+            <a href={`tel:${siteConfig.contact.phoneTel}`} className="btn-on-dark">
               <Phone className="h-4 w-4" />
               {siteConfig.contact.phoneDisplay}
             </a>

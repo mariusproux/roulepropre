@@ -1,20 +1,14 @@
-import { useEffect, useState } from "react";
 import { Calendar, MessageCircle } from "lucide-react";
 import { siteConfig } from "@/config/site";
+import { useScrollPast } from "@/hooks/useScrollPast";
+import { scrollToBooking } from "@/lib/utils";
 
 /**
  * Barre d'action fixe en bas d'écran, uniquement sur mobile.
  * Apparaît après le hero pour garder l'action de réservation toujours à portée de pouce.
  */
 const MobileBookingBar = () => {
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setVisible(window.scrollY > 560);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  const visible = useScrollPast(560);
 
   const whatsappHref = `https://wa.me/${siteConfig.contact.whatsapp}?text=${encodeURIComponent(
     "Bonjour, je souhaite prendre rendez-vous pour un nettoyage de mon véhicule.",
@@ -32,17 +26,11 @@ const MobileBookingBar = () => {
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Contacter par WhatsApp"
-          className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#25D366] text-white transition-transform active:scale-95"
+          className="btn-whatsapp flex h-12 w-12 shrink-0 items-center justify-center rounded-full transition-transform active:scale-95"
         >
           <MessageCircle className="h-6 w-6" />
         </a>
-        <button
-          type="button"
-          onClick={() =>
-            document.getElementById("packages-selector")?.scrollIntoView({ behavior: "smooth" })
-          }
-          className="btn-primary h-12 flex-1"
-        >
+        <button type="button" onClick={scrollToBooking} className="btn-primary h-12 flex-1">
           <Calendar className="h-5 w-5" />
           Prendre rendez-vous
         </button>

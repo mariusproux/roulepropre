@@ -53,7 +53,7 @@ const ServicesSection = () => {
               style={{ animationDelay: `${i * 90}ms` }}
               className={`glass-card card-hover group flex flex-col p-7 ${isVisible ? "animate-rise" : "opacity-0"}`}
             >
-              <div className="mb-5 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-rp-blue to-rp-accent text-white shadow-[0_10px_24px_-10px_hsl(216_91%_47%/0.8)] transition-transform duration-300 group-hover:scale-105">
+              <div className="icon-chip mb-5 h-14 w-14 rounded-2xl shadow-[0_10px_24px_-10px_hsl(216_91%_47%/0.8)] transition-transform duration-300 group-hover:scale-105">
                 <service.icon className="h-7 w-7" strokeWidth={1.75} />
               </div>
               <h3 className="text-xl">{service.title}</h3>
@@ -85,7 +85,7 @@ const ServicesSection = () => {
               </div>
               <a
                 href="#choisir"
-                className="btn-secondary shrink-0 border-white/25 bg-white/10 text-white hover:bg-white/20"
+                className="btn-on-dark shrink-0"
               >
                 Choisir ma prestation
               </a>

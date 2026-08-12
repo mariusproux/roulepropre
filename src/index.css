@@ -152,6 +152,21 @@
     @apply inline-flex items-center justify-center gap-2 rounded-full border border-rp-blue/30 bg-white/70 px-7 py-3.5 font-semibold text-rp-blue backdrop-blur transition-all duration-300 hover:border-rp-blue hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rp-blue focus-visible:ring-offset-2;
   }
 
+  /* Bouton secondaire posé sur une surface sombre (hero, CTA, prestations) */
+  .btn-on-dark {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-white/25 bg-white/10 px-7 py-3.5 font-semibold text-white backdrop-blur transition-all duration-300 hover:border-white/40 hover:bg-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rp-sky focus-visible:ring-offset-2 focus-visible:ring-offset-transparent;
+  }
+
+  /* Couleur de marque WhatsApp (à combiner avec la mise en forme du bouton) */
+  .btn-whatsapp {
+    @apply bg-[#25D366] text-white hover:bg-[#1da851];
+  }
+
+  /* Pastille dégradée contenant une icône (taille/arrondi/ombre au cas par cas) */
+  .icon-chip {
+    @apply inline-flex items-center justify-center bg-gradient-to-br from-rp-blue to-rp-accent text-white;
+  }
+
   /* Petit label en capitales au-dessus des titres */
   .eyebrow {
     @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-rp-blue;

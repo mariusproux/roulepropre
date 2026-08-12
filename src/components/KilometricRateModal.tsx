@@ -2,6 +2,7 @@
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { MapPin, Car } from "lucide-react";
+import { siteConfig } from "@/config/site";
 
 interface KilometricRateModalProps {
   isOpen: boolean;
@@ -15,7 +16,7 @@ const KilometricRateModal = ({ isOpen, onClose, onConfirm }: KilometricRateModal
       <DialogContent className="rounded-3xl sm:max-w-md">
         <DialogHeader className="text-center">
           <div className="mb-4 flex justify-center">
-            <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-rp-blue to-rp-accent text-white shadow-[0_12px_28px_-10px_hsl(216_91%_47%/0.7)]">
+            <div className="icon-chip h-16 w-16 rounded-2xl shadow-[0_12px_28px_-10px_hsl(216_91%_47%/0.7)]">
               <Car className="h-8 w-8" />
             </div>
           </div>
@@ -31,8 +32,7 @@ const KilometricRateModal = ({ isOpen, onClose, onConfirm }: KilometricRateModal
           <div className="flex items-start gap-2 rounded-xl bg-rp-foam p-3.5 text-sm text-rp-deep/80">
             <MapPin className="mt-0.5 h-4 w-4 flex-shrink-0 text-rp-blue" />
             <span>
-              <span className="font-semibold">Départ :</span> 36 Avenue de Nantes, 44140
-              Aigrefeuille-sur-Maine
+              <span className="font-semibold">Départ :</span> {siteConfig.contact.address}
             </span>
           </div>
 
