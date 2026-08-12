@@ -63,7 +63,7 @@ const Footer = () => {
 
           {/* Liens rapides */}
           <div>
-            <h3 className="font-display text-base font-semibold">Liens rapides</h3>
+            <h3 className="font-display text-base font-semibold text-white">Liens rapides</h3>
             <ul className="mt-4 space-y-3 text-sm">
               {quickLinks.map((link) => (
                 <li key={link.href}>
@@ -77,7 +77,7 @@ const Footer = () => {
 
           {/* Contact */}
           <div>
-            <h3 className="font-display text-base font-semibold">Contact</h3>
+            <h3 className="font-display text-base font-semibold text-white">Contact</h3>
             <ul className="mt-4 space-y-3 text-sm">
               <li>
                 <a
@@ -106,7 +106,7 @@ const Footer = () => {
 
           {/* Horaires */}
           <div>
-            <h3 className="font-display text-base font-semibold">Horaires</h3>
+            <h3 className="font-display text-base font-semibold text-white">Horaires</h3>
             <ul className="mt-4 space-y-2.5 text-sm">
               <li className="flex justify-between">
                 <span className="text-blue-100/75">Mardi – Vendredi</span>
