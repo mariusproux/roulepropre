@@ -3,10 +3,14 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 
-const partners = Array.from({ length: 6 }, (_, i) => ({
-  name: `Partenaire ${i + 1}`,
-  logo: `/images/partners/partner-${i + 1}.png`,
-}));
+const partners = [
+  "Freedom Camper",
+  "Cugand Automobiles",
+  "Coveto",
+  "Finance Conseil",
+  "C2C Martin Denis",
+  "Boulangerie Joly",
+].map((name, i) => ({ name, logo: `/images/partners/partner-${i + 1}.png` }));
 
 const PartnersSection = () => {
   const { elementRef, isVisible } = useScrollAnimation();
@@ -35,12 +39,12 @@ const PartnersSection = () => {
               <CarouselContent className="-ml-4">
                 {partners.map((partner, index) => (
                   <CarouselItem key={index} className="basis-1/2 pl-4 sm:basis-1/3 lg:basis-1/4">
-                    <div className="flex h-32 items-center justify-center rounded-2xl border border-rp-foam bg-white p-6 transition-shadow duration-300 hover:shadow-md">
+                    <div className="flex h-32 items-center justify-center rounded-2xl border border-rp-foam bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
                       <img
                         src={partner.logo}
-                        alt={`Logo ${partner.name}`}
+                        alt={`Logo ${partner.name} — partenaire de Roule Propre`}
                         loading="lazy"
-                        className="max-h-20 w-auto object-contain opacity-70 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0"
+                        className="max-h-16 w-auto max-w-full object-contain"
                       />
                     </div>
                   </CarouselItem>
