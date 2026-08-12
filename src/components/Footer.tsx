@@ -26,7 +26,7 @@ const Footer = () => {
               </span>
             </div>
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-blue-100/60">
-              Lavage et detailing automobile écologique, à domicile, dans la région nantaise
+              Lavage et nettoyage automobile écologique, à domicile, dans la région nantaise
               et le sud Loire.
             </p>
             <div className="mt-6 flex gap-3">
@@ -108,15 +108,15 @@ const Footer = () => {
             <h3 className="font-display text-base font-semibold">Horaires</h3>
             <ul className="mt-4 space-y-2.5 text-sm">
               <li className="flex justify-between">
-                <span className="text-blue-100/60">Lundi – Vendredi</span>
+                <span className="text-blue-100/60">Mardi – Vendredi</span>
                 <span>8 h – 18 h</span>
               </li>
               <li className="flex justify-between">
                 <span className="text-blue-100/60">Samedi</span>
-                <span>Fermé</span>
+                <span>8 h – 12 h</span>
               </li>
               <li className="flex justify-between">
-                <span className="text-blue-100/60">Dimanche</span>
+                <span className="text-blue-100/60">Lundi &amp; Dimanche</span>
                 <span>Fermé</span>
               </li>
             </ul>

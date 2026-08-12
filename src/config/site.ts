@@ -9,7 +9,7 @@ export const siteConfig = {
     // Numéro WhatsApp au format international, sans "+" ni espaces (33 = France)
     whatsapp: "33683704784",
     // Email de réception des demandes
-    email: "contact@roulepropre.fr",
+    email: "roule.propre44@gmail.com",
     // Adresse de départ (base des frais de déplacement)
     address: "36 Avenue de Nantes, 44140 Aigrefeuille-sur-Maine",
   },

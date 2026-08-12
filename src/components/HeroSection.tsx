@@ -52,7 +52,7 @@ const HeroSection = () => {
             </h1>
 
             <p className="animate-rise max-w-md text-lg leading-relaxed text-blue-100/90" style={{ animationDelay: "200ms" }}>
-              Detailing intérieur et extérieur réalisé chez vous ou sur votre lieu de
+              Nettoyage intérieur réalisé chez vous ou sur votre lieu de
               travail, avec des produits respectueux de votre véhicule et de l'environnement.
             </p>
 
