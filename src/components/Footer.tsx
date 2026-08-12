@@ -26,7 +26,7 @@ const Footer = () => {
                 <span className="text-rp-sky">ROULE</span> PROPRE
               </span>
             </div>
-            <p className="mt-5 max-w-xs text-sm leading-relaxed text-blue-100/60">
+            <p className="mt-5 max-w-xs text-sm leading-relaxed text-blue-100/75">
               Lavage et nettoyage automobile écologique, à domicile, dans la région nantaise
               et le sud Loire.
             </p>
@@ -67,7 +67,7 @@ const Footer = () => {
             <ul className="mt-4 space-y-3 text-sm">
               {quickLinks.map((link) => (
                 <li key={link.href}>
-                  <a href={link.href} className="text-blue-100/60 transition-colors hover:text-white">
+                  <a href={link.href} className="text-blue-100/75 transition-colors hover:text-white">
                     {link.label}
                   </a>
                 </li>
@@ -82,7 +82,7 @@ const Footer = () => {
               <li>
                 <a
                   href={`tel:${siteConfig.contact.phoneTel}`}
-                  className="flex items-center gap-3 text-blue-100/60 transition-colors hover:text-white"
+                  className="flex items-center gap-3 text-blue-100/75 transition-colors hover:text-white"
                 >
                   <Phone size={16} className="text-rp-sky" />
                   {siteConfig.contact.phoneDisplay}
@@ -91,13 +91,13 @@ const Footer = () => {
               <li>
                 <a
                   href={`mailto:${siteConfig.contact.email}`}
-                  className="flex items-center gap-3 text-blue-100/60 transition-colors hover:text-white"
+                  className="flex items-center gap-3 text-blue-100/75 transition-colors hover:text-white"
                 >
                   <Mail size={16} className="text-rp-sky" />
                   {siteConfig.contact.email}
                 </a>
               </li>
-              <li className="flex items-center gap-3 text-blue-100/60">
+              <li className="flex items-center gap-3 text-blue-100/75">
                 <MapPin size={16} className="text-rp-sky" />
                 Aigrefeuille-sur-Maine &amp; sud Loire
               </li>
@@ -109,15 +109,15 @@ const Footer = () => {
             <h3 className="font-display text-base font-semibold">Horaires</h3>
             <ul className="mt-4 space-y-2.5 text-sm">
               <li className="flex justify-between">
-                <span className="text-blue-100/60">Mardi – Vendredi</span>
+                <span className="text-blue-100/75">Mardi – Vendredi</span>
                 <span>8 h – 18 h</span>
               </li>
               <li className="flex justify-between">
-                <span className="text-blue-100/60">Samedi</span>
+                <span className="text-blue-100/75">Samedi</span>
                 <span>8 h – 12 h</span>
               </li>
               <li className="flex justify-between">
-                <span className="text-blue-100/60">Lundi &amp; Dimanche</span>
+                <span className="text-blue-100/75">Lundi &amp; Dimanche</span>
                 <span>Fermé</span>
               </li>
             </ul>
@@ -126,18 +126,18 @@ const Footer = () => {
 
         <div className="mt-12 border-t border-white/10 pt-8">
           <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
-            <p className="text-sm text-blue-100/50">
+            <p className="text-sm text-blue-100/70">
               © {new Date().getFullYear()} Roule Propre. Tous droits réservés.
             </p>
             <nav aria-label="Liens légaux">
               <div className="flex flex-col items-center gap-2 text-sm sm:flex-row sm:gap-5">
-                <Link to="/mentions-legales" className="text-blue-100/50 transition-colors hover:text-white">
+                <Link to="/mentions-legales" className="text-blue-100/70 transition-colors hover:text-white">
                   Mentions légales
                 </Link>
-                <Link to="/cgu" className="text-blue-100/50 transition-colors hover:text-white">
+                <Link to="/cgu" className="text-blue-100/70 transition-colors hover:text-white">
                   CGU
                 </Link>
-                <Link to="/politique-de-confidentialite" className="text-blue-100/50 transition-colors hover:text-white">
+                <Link to="/politique-de-confidentialite" className="text-blue-100/70 transition-colors hover:text-white">
                   Politique de confidentialité
                 </Link>
               </div>
