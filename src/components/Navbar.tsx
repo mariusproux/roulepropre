@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useScrollPast } from "@/hooks/useScrollPast";
@@ -15,14 +16,16 @@ const navLinks = [
 const Navbar = () => {
   const isScrolled = useScrollPast(50);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const isHome = useLocation().pathname === "/";
 
   const goToBooking = () => {
     scrollToBooking();
     setIsMobileMenuOpen(false);
   };
 
-  // Sur le hero sombre (non scrollé) le texte est clair ; une fois scrollé, fond blanc + texte sombre.
-  const onLight = isScrolled || isMobileMenuOpen;
+  // Texte clair uniquement au-dessus du hero sombre de l'accueil ;
+  // partout ailleurs (pages légales, scroll, menu ouvert) → fond blanc + texte sombre.
+  const onLight = !isHome || isScrolled || isMobileMenuOpen;
 
   return (
     <header

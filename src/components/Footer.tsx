@@ -1,4 +1,5 @@
 import { Linkedin, Instagram, Phone, Mail, MapPin } from "lucide-react";
+import { Link } from "react-router-dom";
 import { siteConfig } from "@/config/site";
 
 const quickLinks = [
@@ -130,15 +131,15 @@ const Footer = () => {
             </p>
             <nav aria-label="Liens légaux">
               <div className="flex flex-col items-center gap-2 text-sm sm:flex-row sm:gap-5">
-                <a href="/mentions-legales" className="text-blue-100/50 transition-colors hover:text-white">
+                <Link to="/mentions-legales" className="text-blue-100/50 transition-colors hover:text-white">
                   Mentions légales
-                </a>
-                <a href="/cgu" className="text-blue-100/50 transition-colors hover:text-white">
+                </Link>
+                <Link to="/cgu" className="text-blue-100/50 transition-colors hover:text-white">
                   CGU
-                </a>
-                <a href="/politique-de-confidentialite" className="text-blue-100/50 transition-colors hover:text-white">
+                </Link>
+                <Link to="/politique-de-confidentialite" className="text-blue-100/50 transition-colors hover:text-white">
                   Politique de confidentialité
-                </a>
+                </Link>
               </div>
             </nav>
           </div>

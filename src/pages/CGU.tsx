@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -5,7 +6,7 @@ const CGU = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      <main className="container mx-auto px-4 py-16 max-w-4xl">
+      <main className="container mx-auto px-4 pb-16 pt-28 max-w-4xl">
         <div className="prose prose-lg max-w-none">
           <h1 className="text-4xl font-bold text-center mb-12 text-primary">
             Conditions Générales d'Utilisation
@@ -99,7 +100,7 @@ const CGU = () => {
               <p>
                 Conformément aux dispositions de la loi n° 78-17 du 6 janvier 1978 modifiée, l'utilisateur dispose d'un droit d'accès, 
                 de modification et de suppression des informations collectées. Pour plus d'informations sur la collecte et le traitement 
-                des données, consultez notre <a href="/politique-confidentialite" className="text-primary hover:underline">Politique de Confidentialité</a>.
+                des données, consultez notre <Link to="/politique-de-confidentialite" className="text-primary hover:underline">Politique de Confidentialité</Link>.
               </p>
             </section>
 
